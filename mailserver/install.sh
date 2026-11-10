@@ -41,7 +41,7 @@ fi
 step "Установка необходимых пакетов"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -qq
-apt-get install -y -qq curl ca-certificates dnsutils openssl >/dev/null
+apt-get install -y -qq curl ca-certificates dnsutils openssl unattended-upgrades >/dev/null
 if ! command -v docker >/dev/null 2>&1; then
   curl -fsSL https://get.docker.com | sh
 fi
@@ -101,8 +101,19 @@ if [[ ! -f "/etc/letsencrypt/live/$MAIL_HOST/fullchain.pem" ]]; then
     -d "$MAIL_HOST"
 fi
 c_ok "Сертификат есть"
+# Продление сертификата: скрипт на хосте (в контейнере certbot нет docker),
+# почта перезапускается только если сертификат реально изменился.
+cat > /usr/local/bin/mailserver-cert-renew.sh <<EOF
+#!/usr/bin/env bash
+CERT="/etc/letsencrypt/live/${MAIL_HOST}/fullchain.pem"
+before="\$(sha256sum "\$CERT" 2>/dev/null | cut -d' ' -f1)"
+docker run --rm -p 80:80 -v /etc/letsencrypt:/etc/letsencrypt certbot/certbot renew --quiet
+after="\$(sha256sum "\$CERT" 2>/dev/null | cut -d' ' -f1)"
+if [[ "\$before" != "\$after" ]]; then docker restart mailserver >/dev/null; fi
+EOF
+chmod +x /usr/local/bin/mailserver-cert-renew.sh
 cat > /etc/cron.d/mailserver-certbot <<'EOF'
-17 3 * * * root docker run --rm -p 80:80 -v /etc/letsencrypt:/etc/letsencrypt certbot/certbot renew --quiet --deploy-hook "docker restart mailserver"
+17 3 * * * root /usr/local/bin/mailserver-cert-renew.sh
 EOF
 
 # ---------------------------------------------------------------- docker-mailserver
@@ -169,7 +180,13 @@ c_ok "Контейнер запущен"
 dms() { docker exec mailserver setup "$@"; }
 
 step "Почтовые ящики"
-sleep 12
+echo "Жду готовности почтового сервера (до 3 минут)..."
+for _ in $(seq 1 90); do
+  if docker exec mailserver setup email list >/dev/null 2>&1 \
+     || docker exec mailserver supervisorctl status postfix 2>/dev/null | grep -q RUNNING; then break; fi
+  sleep 2
+done
+sleep 3
 touch "$CRED_FILE"; chmod 600 "$CRED_FILE"
 EXISTING="$(dms email list 2>/dev/null || true)"
 for addr in $ACCOUNTS; do
@@ -194,8 +211,10 @@ done
 step "DKIM-ключи (селектор mail, 2048 бит)"
 # Явно генерируем ключ для каждого домена — так надёжнее, чем авто-режим
 for d in $DOMAINS; do
-  dms config dkim keysize 2048 selector mail domain "$d" 2>/dev/null \
-    || dms config dkim keysize 2048 domain "$d" 2>/dev/null || true
+  if ! dms config dkim keysize 2048 selector mail domain "$d"; then
+    c_warn "Первая попытка DKIM для $d не удалась, пробую без селектора"
+    dms config dkim keysize 2048 domain "$d" || c_err "DKIM для $d НЕ создан! Без него Gmail отправит письма в спам."
+  fi
 done
 docker compose restart mailserver >/dev/null
 sleep 8
