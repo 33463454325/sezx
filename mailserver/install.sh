@@ -151,6 +151,17 @@ services:
     restart: always
     stop_grace_period: 1m
 EOF
+# Защита репутации: если чей-то ящик взломают, он не сможет разослать тысячи писем
+# и сжечь IP. Лимиты только на порты отправки клиентов (587/465), входящая почта не затрагивается.
+mkdir -p docker-data/dms/config
+if [[ ! -f docker-data/dms/config/postfix-master.cf ]]; then
+  cat > docker-data/dms/config/postfix-master.cf <<'EOF'
+submission/inet/smtpd_client_message_rate_limit=30
+submission/inet/smtpd_client_recipient_rate_limit=100
+submissions/inet/smtpd_client_message_rate_limit=30
+submissions/inet/smtpd_client_recipient_rate_limit=100
+EOF
+fi
 docker compose pull -q
 docker compose up -d
 c_ok "Контейнер запущен"
@@ -220,6 +231,7 @@ for d in $DOMAINS; do
   fi
   echo "  TXT   @                v=spf1 ip4:$PUBLIC_IP -all"
   echo "  TXT   _dmarc           v=DMARC1; p=none; rua=mailto:dmarc@$d; adkim=r; aspf=r"
+  echo "  TXT   _smtp._tls       v=TLSRPTv1; rua=mailto:dmarc@$d          # необязательно, отчёты о TLS"
   echo "  TXT   mail._domainkey  $dk"
   echo
   echo "$dk" > "$INSTALL_DIR/dkim-$d.txt"
