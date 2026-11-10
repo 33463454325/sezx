@@ -6,12 +6,26 @@
 // сохранить как секрет окружения для generativelanguage.googleapis.com —
 // тогда прокси сам подставит заголовок x-goog-api-key, и переменная не нужна.
 
+import { readFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { createInterface } from "node:readline";
 
+// Подхватываем переменные из .env в корне проекта (файл в .gitignore, в git не попадает).
+try {
+  const envPath = new URL("../.env", import.meta.url);
+  for (const line of readFileSync(envPath, "utf8").split("\n")) {
+    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+    if (m && !(m[1] in process.env)) process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
+  }
+} catch {}
+
 const API_BASE = process.env.GEMINI_API_BASE || "https://generativelanguage.googleapis.com/v1beta";
-const DEFAULT_MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
+const DEFAULT_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+// Запасные модели: пробуются по очереди, если основная перегружена (503/429), недоступна (404) или не ответила вовремя.
+const FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || "gemini-3.5-flash-lite")
+  .split(",").map((s) => s.trim()).filter(Boolean);
+const TIMEOUT_MS = Number(process.env.GEMINI_TIMEOUT_MS) || 45_000;
 const MAX_FILE_BYTES = 2_000_000;
 
 // ---------- Gemini API ----------
@@ -25,7 +39,17 @@ function headers() {
 }
 
 async function geminiRequest(url, init = {}) {
-  const res = await fetch(url, { ...init, headers: headers() });
+  let res;
+  try {
+    res = await fetch(url, { ...init, headers: headers(), signal: AbortSignal.timeout(TIMEOUT_MS) });
+  } catch (e) {
+    if (e.name === "TimeoutError" || e.name === "AbortError") {
+      const err = new Error(`Gemini не ответил за ${TIMEOUT_MS / 1000} с`);
+      err.retryable = true;
+      throw err;
+    }
+    throw e;
+  }
   const text = await res.text();
   if (!res.ok) {
     let hint = "";
@@ -34,13 +58,15 @@ async function geminiRequest(url, init = {}) {
         "\nПохоже, нет доступа к Gemini API: задайте GEMINI_API_KEY или сохраните ключ " +
         "как секрет окружения для generativelanguage.googleapis.com.";
     }
-    throw new Error(`Gemini API ${res.status}: ${text.slice(0, 1000)}${hint}`);
+    const err = new Error(`Gemini API ${res.status}: ${text.slice(0, 1000)}${hint}`);
+    err.retryable = [404, 429, 500, 503, 504].includes(res.status);
+    throw err;
   }
   return JSON.parse(text);
 }
 
-export async function generate({ prompt, model, system, temperature }) {
-  const m = (model || DEFAULT_MODEL).replace(/^models\//, "");
+async function generateWith(model, { prompt, system, temperature }) {
+  const m = model.replace(/^models\//, "");
   const body = {
     contents: [{ role: "user", parts: [{ text: prompt }] }],
   };
@@ -53,12 +79,28 @@ export async function generate({ prompt, model, system, temperature }) {
   });
 
   const cand = data.candidates?.[0];
-  const out = (cand?.content?.parts || []).map((p) => p.text || "").join("");
+  const out = (cand?.content?.parts || []).filter((p) => !p.thought).map((p) => p.text || "").join("");
   if (!out) {
     const reason = cand?.finishReason || data.promptFeedback?.blockReason || "unknown";
     throw new Error(`Gemini вернул пустой ответ (причина: ${reason})`);
   }
   return out;
+}
+
+export async function generate(args) {
+  // Если модель указана явно — только она; иначе основная + запасные.
+  const chain = args.model ? [args.model] : [DEFAULT_MODEL, ...FALLBACK_MODELS.filter((m) => m !== DEFAULT_MODEL)];
+  const errors = [];
+  for (const model of chain) {
+    try {
+      const out = await generateWith(model, args);
+      return errors.length ? `[ответила запасная модель ${model}]\n${out}` : out;
+    } catch (e) {
+      errors.push(`${model}: ${e.message.split("\n")[0].slice(0, 300)}`);
+      if (!e.retryable) break;
+    }
+  }
+  throw new Error(`Не удалось получить ответ от Gemini:\n${errors.join("\n")}`);
 }
 
 async function listModels() {
