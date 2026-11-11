@@ -48,6 +48,11 @@ if [[ "$DNS_ONLY" != "1" ]]; then
   chk "Исходящий порт 25 открыт"  "timeout 10 bash -c 'exec 3<>/dev/tcp/gmail-smtp-in.l.google.com/25' 2>/dev/null"
   chk "Нет открытого релея (чужие адреса без пароля отклоняются)" 'relay_closed'
   chk "Сертификат TLS на 465 валиден" "echo | timeout 10 openssl s_client -connect 127.0.0.1:465 -servername '$MAIL_HOST' 2>/dev/null | openssl x509 -noout -checkend 604800 >/dev/null 2>&1"
+  if docker inspect mail-console >/dev/null 2>&1; then
+    chk "Консоль отправки работает (https://$MAIL_HOST:8443)" "[[ \"\$(curl -sk -o /dev/null -w '%{http_code}' https://127.0.0.1:8443/)\" == 200 ]]"
+  else
+    note "Консоль отправки не установлена (bash /opt/mailserver/install-console.sh)"
+  fi
 else
   note "Режим DNS_ONLY: проверки контейнера, портов и релея пропущены"
 fi

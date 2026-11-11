@@ -41,7 +41,7 @@ fi
 step "Установка необходимых пакетов"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -qq
-apt-get install -y -qq curl ca-certificates dnsutils openssl unattended-upgrades >/dev/null
+apt-get install -y -qq curl ca-certificates dnsutils openssl python3 unattended-upgrades >/dev/null
 if ! command -v docker >/dev/null 2>&1; then
   curl -fsSL https://get.docker.com | sh
 fi
@@ -109,7 +109,10 @@ CERT="/etc/letsencrypt/live/${MAIL_HOST}/fullchain.pem"
 before="\$(sha256sum "\$CERT" 2>/dev/null | cut -d' ' -f1)"
 docker run --rm -p 80:80 -v /etc/letsencrypt:/etc/letsencrypt certbot/certbot renew --quiet
 after="\$(sha256sum "\$CERT" 2>/dev/null | cut -d' ' -f1)"
-if [[ "\$before" != "\$after" ]]; then docker restart mailserver >/dev/null; fi
+if [[ "\$before" != "\$after" ]]; then
+  docker restart mailserver >/dev/null
+  docker restart mail-console >/dev/null 2>&1 || true
+fi
 EOF
 chmod +x /usr/local/bin/mailserver-cert-renew.sh
 cat > /etc/cron.d/mailserver-certbot <<'EOF'
@@ -119,7 +122,8 @@ EOF
 # ---------------------------------------------------------------- docker-mailserver
 step "Настройка docker-mailserver в $INSTALL_DIR"
 mkdir -p "$INSTALL_DIR"
-for f in check.sh cleanup-vpn.sh; do [[ -f "$SCRIPT_DIR/$f" ]] && cp "$SCRIPT_DIR/$f" "$INSTALL_DIR/$f"; done
+for f in check.sh cleanup-vpn.sh send-test.sh install-console.sh; do [[ -f "$SCRIPT_DIR/$f" ]] && cp "$SCRIPT_DIR/$f" "$INSTALL_DIR/$f"; done
+[[ -d "$SCRIPT_DIR/console" && "$SCRIPT_DIR" != "$INSTALL_DIR" ]] && cp -r "$SCRIPT_DIR/console" "$INSTALL_DIR/" || true
 cd "$INSTALL_DIR"
 cat > compose.yaml <<EOF
 services:
@@ -269,4 +273,10 @@ EOF
 
 [[ $PTR_BAD -eq 1 ]] && c_warn "PTR ещё не настроен для $PUBLIC_IP — без него Gmail не примет письма."
 c_ok "Эти же записи сохранены в $INSTALL_DIR/DNS-RECORDS.txt"
+
+# ---------------------------------------------------------------- консоль отправки (по умолчанию включена)
+if [[ "${INSTALL_CONSOLE:-1}" == "1" && -f "$SCRIPT_DIR/install-console.sh" ]]; then
+  MAIL_HOST="$MAIL_HOST" ACCOUNTS="$ACCOUNTS" INSTALL_DIR="$INSTALL_DIR" CRED_FILE="$CRED_FILE" \
+    bash "$SCRIPT_DIR/install-console.sh" || c_warn "Консоль не установилась (почта работает). Повторить: bash $INSTALL_DIR/install-console.sh"
+fi
 exit 0

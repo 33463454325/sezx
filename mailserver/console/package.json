@@ -1,0 +1,19 @@
+{
+  "name": "mail-console",
+  "version": "1.0.0",
+  "description": "Консоль ручной отправки писем через собственный почтовый сервер",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/e2e.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "nodemailer": "10.5.0"
+  },
+  "devDependencies": {
+    "mailparser": "3.14.3",
+    "smtp-server": "3.21.4"
+  }
+}
