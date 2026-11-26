@@ -1,5 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
-import math, os, random
+import math, os, random, sys
+sys.path.insert(0, os.path.dirname(__file__))
+from _brand import apply_watermark, header_logo
 
 SCALE = 2
 W_FINAL, H_FINAL = 1180, 820
@@ -91,6 +93,7 @@ def gradient_bg(img):
         g = int(BG_A[1] * (1-t) + BG_B[1] * t)
         b = int(BG_A[2] * (1-t) + BG_B[2] * t)
         d.line([(0, y), (W, y)], fill=(r, g, b))
+    apply_watermark(img, size_frac=0.80, alpha=24)
 
 def soft_shadow(img, box, radius=14, blur=10, alpha=120):
     sh = Image.new("RGBA", img.size, (0,0,0,0))
@@ -151,9 +154,7 @@ def draw_header(d, active_tab):
         b = int(40 * (1-t) + 26 * t)
         d.line([(0, y*SCALE), (W, y*SCALE)], fill=(r, g, b), width=SCALE)
     # logo
-    rrect(d, (22, 16, 54, 48), 8, ACCENT)
-    text(d, (29, 21), "S2", f_h3, WHITE)
-    text(d, (66, 12), "so2mm", f_hero, WHITE)
+    text(d, (90, 12), "VEKTOR", f_hero, WHITE)
     text(d, (66, 46), f"тёмно-красная · arm64 · v2.4.1 · {active_tab}",
          f_desc, SECOND, max_w=W_FINAL//2)
     # user chip
@@ -521,6 +522,7 @@ def render(tab_name, draw_body, active_cat, active_item, out):
     gradient_bg(img)
     d = ImageDraw.Draw(img, "RGBA")
     draw_header(d, tab_name)
+    header_logo(img, 16*SCALE, 8*SCALE, 60*SCALE)
     draw_sidebar(d, active_cat, active_item)
     draw_body(d)
     draw_stats_panel(d, W_FINAL - 300 + 6, 94, 282, H_FINAL - 94 - 18, fps_series)

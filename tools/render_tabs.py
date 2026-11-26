@@ -1,5 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
-import os
+import os, sys
+sys.path.insert(0, os.path.dirname(__file__))
+from _brand import apply_watermark, header_logo
 
 W, H = 900, 1100
 BG       = (14, 5, 7)
@@ -64,8 +66,8 @@ def slider(d, x, y, w, val, label_right):
 
 def draw_header(d):
     d.rectangle((0, 0, W, 70), fill=(20, 7, 10))
-    d.text((24, 16), "so2mm", font=f_hero, fill=RED_HI)
-    d.text((140, 28), "тёмно-красная · v2.4 · arm64", font=f_desc, fill=SECOND)
+    d.text((80, 16), "VEKTOR", font=f_hero, fill=RED_HI)
+    d.text((80, 44), "тёмно-красная · v2.4 · arm64", font=f_desc, fill=SECOND)
     chip_x = W - 220
     rrect(d, (chip_x, 20, W-20, 46), 13, (34, 12, 16), outline=RED_DIM, width=1)
     d.ellipse((chip_x+10, 27, chip_x+22, 39), fill=GREEN)
@@ -303,9 +305,11 @@ OUT_DIR = "/tmp/claude-0/-home-user-sezx/c19d3923-cc31-59a5-a153-26878d244cef/sc
 os.makedirs(OUT_DIR, exist_ok=True)
 paths = []
 for i, (name, _, key) in enumerate(TABS):
-    img = Image.new("RGBA", (W, H), BG)
+    img = Image.new("RGBA", (W, H), BG + (255,))
+    apply_watermark(img, size_frac=0.85, alpha=30)
     d = ImageDraw.Draw(img)
     draw_header(d)
+    header_logo(img, 12, 6, 60)
     draw_sidebar(d, i)
     draw_main(d, i)
     p = f"{OUT_DIR}/so2mm_{i+1:02d}_{key}.png"
