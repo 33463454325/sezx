@@ -1,0 +1,2406 @@
+{
+  "Akimbo Uzi": {
+    "kind": "smg",
+    "weapon_slug": "akimbo-uzi",
+    "skins": [
+      {
+        "slug": "akimbo-uzi-overdrive-red",
+        "name": "Overdrive Red"
+      },
+      {
+        "slug": "akimbo-uzi-ravage",
+        "name": "Ravage"
+      },
+      {
+        "slug": "akimbo-uzi-skull",
+        "name": "Skull"
+      },
+      {
+        "slug": "akimbo-uzi-spray",
+        "name": "Spray"
+      },
+      {
+        "slug": "akimbo-uzi-streak",
+        "name": "Streak"
+      },
+      {
+        "slug": "akimbo-uzi-toco",
+        "name": "Toco"
+      }
+    ]
+  },
+  "AKR": {
+    "kind": "rifle",
+    "weapon_slug": "akr",
+    "skins": [
+      {
+        "slug": "akr-2-years-red",
+        "name": "2 Years Red"
+      },
+      {
+        "slug": "akr-carbon",
+        "name": "Carbon"
+      },
+      {
+        "slug": "akr-digital-burst",
+        "name": "Digital Burst"
+      },
+      {
+        "slug": "akr-dragon",
+        "name": "Dragon"
+      },
+      {
+        "slug": "akr-evolution",
+        "name": "Evolution"
+      },
+      {
+        "slug": "akr-fabric-storm",
+        "name": "Fabric Storm"
+      },
+      {
+        "slug": "akr-genesis",
+        "name": "Genesis"
+      },
+      {
+        "slug": "akr-icewing",
+        "name": "Icewing"
+      },
+      {
+        "slug": "akr-mirage-menace",
+        "name": "Mirage Menace"
+      },
+      {
+        "slug": "akr-nano",
+        "name": "Nano"
+      },
+      {
+        "slug": "akr-necromancer",
+        "name": "Necromancer"
+      },
+      {
+        "slug": "akr-night-fury",
+        "name": "Night Fury"
+      },
+      {
+        "slug": "akr-scale",
+        "name": "Scale"
+      },
+      {
+        "slug": "akr-scylla",
+        "name": "Scylla"
+      },
+      {
+        "slug": "akr-sport",
+        "name": "Sport"
+      },
+      {
+        "slug": "akr-steel-grip",
+        "name": "Steel Grip"
+      },
+      {
+        "slug": "akr-tag-king",
+        "name": "Tag King"
+      },
+      {
+        "slug": "akr-tiger",
+        "name": "Tiger"
+      },
+      {
+        "slug": "akr-treasure-hunter",
+        "name": "Treasure Hunter"
+      },
+      {
+        "slug": "akr-vermilion",
+        "name": "Vermilion"
+      },
+      {
+        "slug": "akr-worm",
+        "name": "Worm"
+      }
+    ]
+  },
+  "AKR-12": {
+    "kind": "rifle",
+    "weapon_slug": "akr12",
+    "skins": [
+      {
+        "slug": "akr12-4-years",
+        "name": "4 Years"
+      },
+      {
+        "slug": "akr12-armored",
+        "name": "Armored"
+      },
+      {
+        "slug": "akr12-ashbringer",
+        "name": "Ashbringer"
+      },
+      {
+        "slug": "akr12-aurora",
+        "name": "Aurora"
+      },
+      {
+        "slug": "akr12-carbon",
+        "name": "Carbon"
+      },
+      {
+        "slug": "akr12-carving",
+        "name": "Carving"
+      },
+      {
+        "slug": "akr12-emberbird",
+        "name": "Emberbird"
+      },
+      {
+        "slug": "akr12-flow",
+        "name": "Flow"
+      },
+      {
+        "slug": "akr12-geometric",
+        "name": "Geometric"
+      },
+      {
+        "slug": "akr12-hanami",
+        "name": "Hanami"
+      },
+      {
+        "slug": "akr12-haunt",
+        "name": "Haunt"
+      },
+      {
+        "slug": "akr12-mechanic",
+        "name": "Mechanic"
+      },
+      {
+        "slug": "akr12-mimicry",
+        "name": "Mimicry"
+      },
+      {
+        "slug": "akr12-pixel-camouflage",
+        "name": "Pixel Camouflage"
+      },
+      {
+        "slug": "akr12-railgun",
+        "name": "Railgun"
+      },
+      {
+        "slug": "akr12-riot",
+        "name": "Riot"
+      },
+      {
+        "slug": "akr12-roar",
+        "name": "Roar"
+      },
+      {
+        "slug": "akr12-shark",
+        "name": "Shark"
+      },
+      {
+        "slug": "akr12-spring",
+        "name": "Spring"
+      },
+      {
+        "slug": "akr12-steam-beast",
+        "name": "Steam Beast"
+      },
+      {
+        "slug": "akr12-transistor",
+        "name": "Transistor"
+      }
+    ]
+  },
+  "AWM": {
+    "kind": "sniper",
+    "weapon_slug": "awm",
+    "skins": [
+      {
+        "slug": "awm-2-years-red",
+        "name": "2 Years Red"
+      },
+      {
+        "slug": "awm-boom",
+        "name": "Boom"
+      },
+      {
+        "slug": "awm-cold-blooded",
+        "name": "Cold Blooded"
+      },
+      {
+        "slug": "awm-dragon",
+        "name": "Dragon"
+      },
+      {
+        "slug": "awm-elevation",
+        "name": "Elevation"
+      },
+      {
+        "slug": "awm-festal-wrap",
+        "name": "Festal Wrap"
+      },
+      {
+        "slug": "awm-gear",
+        "name": "Gear"
+      },
+      {
+        "slug": "awm-genesis",
+        "name": "Genesis"
+      },
+      {
+        "slug": "awm-hohei-taisho",
+        "name": "Hohei Taisho"
+      },
+      {
+        "slug": "awm-kings",
+        "name": "Kings"
+      },
+      {
+        "slug": "awm-nebula",
+        "name": "Nebula"
+      },
+      {
+        "slug": "awm-phoenix",
+        "name": "Phoenix"
+      },
+      {
+        "slug": "awm-polar-night",
+        "name": "Polar Night"
+      },
+      {
+        "slug": "awm-poseidon",
+        "name": "Poseidon"
+      },
+      {
+        "slug": "awm-scratch",
+        "name": "Scratch"
+      },
+      {
+        "slug": "awm-spectral",
+        "name": "Spectral"
+      },
+      {
+        "slug": "awm-sport",
+        "name": "Sport"
+      },
+      {
+        "slug": "awm-sport-v2",
+        "name": "Sport V2"
+      },
+      {
+        "slug": "awm-stickerbomb",
+        "name": "Stickerbomb"
+      },
+      {
+        "slug": "awm-sylvan",
+        "name": "Sylvan"
+      },
+      {
+        "slug": "awm-treasure-hunter",
+        "name": "Treasure Hunter"
+      },
+      {
+        "slug": "awm-winter-sport",
+        "name": "Winter Sport"
+      },
+      {
+        "slug": "awm-xenoguard",
+        "name": "Xenoguard"
+      }
+    ]
+  },
+  "Berettas": {
+    "kind": "pistol",
+    "weapon_slug": "berettas",
+    "skins": [
+      {
+        "slug": "berettas-artifacts",
+        "name": "Artifacts"
+      },
+      {
+        "slug": "berettas-blazing-maw",
+        "name": "Blazing Maw"
+      },
+      {
+        "slug": "berettas-construction-sector",
+        "name": "Construction Sector"
+      },
+      {
+        "slug": "berettas-damascus",
+        "name": "Damascus"
+      },
+      {
+        "slug": "berettas-hexagon",
+        "name": "Hexagon"
+      },
+      {
+        "slug": "berettas-hybrid",
+        "name": "Hybrid"
+      },
+      {
+        "slug": "berettas-lumos-shard",
+        "name": "Lumos Shard"
+      },
+      {
+        "slug": "berettas-royal-rose",
+        "name": "Royal Rose"
+      },
+      {
+        "slug": "berettas-soul-devourer",
+        "name": "Soul Devourer"
+      },
+      {
+        "slug": "berettas-verdicts",
+        "name": "Verdicts"
+      }
+    ]
+  },
+  "Butterfly": {
+    "kind": "knife",
+    "weapon_slug": "butterfly",
+    "skins": [
+      {
+        "slug": "butterfly-black-widow",
+        "name": "Black Widow"
+      },
+      {
+        "slug": "butterfly-cold-flame",
+        "name": "Cold Flame"
+      },
+      {
+        "slug": "butterfly-dragon-glass",
+        "name": "Dragon Glass"
+      },
+      {
+        "slug": "butterfly-fire-storm",
+        "name": "Fire Storm"
+      },
+      {
+        "slug": "butterfly-glitch",
+        "name": "Glitch"
+      },
+      {
+        "slug": "butterfly-kumo",
+        "name": "Kumo"
+      },
+      {
+        "slug": "butterfly-legacy",
+        "name": "Legacy"
+      },
+      {
+        "slug": "butterfly-ripple",
+        "name": "Ripple"
+      },
+      {
+        "slug": "butterfly-saphira",
+        "name": "Saphira"
+      },
+      {
+        "slug": "butterfly-starfall",
+        "name": "Starfall"
+      }
+    ]
+  },
+  "Desert Eagle": {
+    "kind": "pistol",
+    "weapon_slug": "desert-eagle",
+    "skins": [
+      {
+        "slug": "desert-eagle-ace",
+        "name": "Ace"
+      },
+      {
+        "slug": "desert-eagle-aureate",
+        "name": "Aureate"
+      },
+      {
+        "slug": "desert-eagle-blood",
+        "name": "Blood"
+      },
+      {
+        "slug": "desert-eagle-dragon-glass",
+        "name": "Dragon Glass"
+      },
+      {
+        "slug": "desert-eagle-dust-devil",
+        "name": "Dust Devil"
+      },
+      {
+        "slug": "desert-eagle-eclipse",
+        "name": "Eclipse"
+      },
+      {
+        "slug": "desert-eagle-fusion-core",
+        "name": "Fusion Core"
+      },
+      {
+        "slug": "desert-eagle-gambit",
+        "name": "Gambit"
+      },
+      {
+        "slug": "desert-eagle-glory",
+        "name": "Glory"
+      },
+      {
+        "slug": "desert-eagle-hunter",
+        "name": "Hunter"
+      },
+      {
+        "slug": "desert-eagle-infection",
+        "name": "Infection"
+      },
+      {
+        "slug": "desert-eagle-morgan",
+        "name": "Morgan"
+      },
+      {
+        "slug": "desert-eagle-orochi",
+        "name": "Orochi"
+      },
+      {
+        "slug": "desert-eagle-piranha",
+        "name": "Piranha"
+      },
+      {
+        "slug": "desert-eagle-predator",
+        "name": "Predator"
+      },
+      {
+        "slug": "desert-eagle-red-dragon",
+        "name": "Red Dragon"
+      },
+      {
+        "slug": "desert-eagle-thunder",
+        "name": "Thunder"
+      },
+      {
+        "slug": "desert-eagle-venator",
+        "name": "Venator"
+      },
+      {
+        "slug": "desert-eagle-vermilion",
+        "name": "Vermilion"
+      },
+      {
+        "slug": "desert-eagle-violet-flame",
+        "name": "Violet Flame"
+      },
+      {
+        "slug": "desert-eagle-winner",
+        "name": "Winner"
+      },
+      {
+        "slug": "desert-eagle-yakuza",
+        "name": "Yakuza"
+      }
+    ]
+  },
+  "Dual Berettas": {
+    "kind": "pistol",
+    "weapon_slug": "dual",
+    "skins": [
+      {
+        "slug": "dual-daggers-acid",
+        "name": "Daggers Acid"
+      },
+      {
+        "slug": "dual-daggers-contagion",
+        "name": "Daggers Contagion"
+      },
+      {
+        "slug": "dual-daggers-demonic-steel",
+        "name": "Daggers Demonic Steel"
+      },
+      {
+        "slug": "dual-daggers-frost-nova",
+        "name": "Daggers Frost Nova"
+      },
+      {
+        "slug": "dual-daggers-grunge",
+        "name": "Daggers Grunge"
+      },
+      {
+        "slug": "dual-daggers-harmony",
+        "name": "Daggers Harmony"
+      },
+      {
+        "slug": "dual-daggers-jaws",
+        "name": "Daggers Jaws"
+      },
+      {
+        "slug": "dual-daggers-molten",
+        "name": "Daggers Molten"
+      },
+      {
+        "slug": "dual-daggers-retro-arcade",
+        "name": "Daggers Retro Arcade"
+      },
+      {
+        "slug": "dual-daggers-tiki",
+        "name": "Daggers Tiki"
+      }
+    ]
+  },
+  "FABM": {
+    "kind": "rifle",
+    "weapon_slug": "fabm",
+    "skins": [
+      {
+        "slug": "fabm-boom",
+        "name": "Boom"
+      },
+      {
+        "slug": "fabm-cranium",
+        "name": "Cranium"
+      },
+      {
+        "slug": "fabm-cursed-fire",
+        "name": "Cursed Fire"
+      },
+      {
+        "slug": "fabm-death-herald",
+        "name": "Death Herald"
+      },
+      {
+        "slug": "fabm-flight",
+        "name": "Flight"
+      },
+      {
+        "slug": "fabm-gangster",
+        "name": "Gangster"
+      },
+      {
+        "slug": "fabm-hercules",
+        "name": "Hercules"
+      },
+      {
+        "slug": "fabm-mayhem",
+        "name": "Mayhem"
+      },
+      {
+        "slug": "fabm-parrot",
+        "name": "Parrot"
+      },
+      {
+        "slug": "fabm-reactor",
+        "name": "Reactor"
+      },
+      {
+        "slug": "fabm-streak",
+        "name": "Streak"
+      },
+      {
+        "slug": "fabm-thief-of-the-christmas",
+        "name": "Thief Of The Christmas"
+      },
+      {
+        "slug": "fabm-tindalos",
+        "name": "Tindalos"
+      },
+      {
+        "slug": "fabm-vein",
+        "name": "Vein"
+      },
+      {
+        "slug": "fabm-waste",
+        "name": "Waste"
+      }
+    ]
+  },
+  "FAMAS": {
+    "kind": "rifle",
+    "weapon_slug": "famas",
+    "skins": [
+      {
+        "slug": "famas-anger",
+        "name": "Anger"
+      },
+      {
+        "slug": "famas-autumn",
+        "name": "Autumn"
+      },
+      {
+        "slug": "famas-battle-steel",
+        "name": "Battle Steel"
+      },
+      {
+        "slug": "famas-beagle",
+        "name": "Beagle"
+      },
+      {
+        "slug": "famas-christmas-symbol",
+        "name": "Christmas Symbol"
+      },
+      {
+        "slug": "famas-feral",
+        "name": "Feral"
+      },
+      {
+        "slug": "famas-fury",
+        "name": "Fury"
+      },
+      {
+        "slug": "famas-gunsmoke",
+        "name": "Gunsmoke"
+      },
+      {
+        "slug": "famas-handcraft",
+        "name": "Handcraft"
+      },
+      {
+        "slug": "famas-hull",
+        "name": "Hull"
+      },
+      {
+        "slug": "famas-monster",
+        "name": "Monster"
+      },
+      {
+        "slug": "famas-oxide",
+        "name": "Oxide"
+      },
+      {
+        "slug": "famas-ritual",
+        "name": "Ritual"
+      },
+      {
+        "slug": "famas-snow-storm",
+        "name": "Snow Storm"
+      },
+      {
+        "slug": "famas-stellar-blitz",
+        "name": "Stellar Blitz"
+      }
+    ]
+  },
+  "Fang Dagger": {
+    "kind": "knife",
+    "weapon_slug": "fang",
+    "skins": [
+      {
+        "slug": "fang-aureate",
+        "name": "Aureate"
+      },
+      {
+        "slug": "fang-damascus",
+        "name": "Damascus"
+      },
+      {
+        "slug": "fang-flare",
+        "name": "Flare"
+      },
+      {
+        "slug": "fang-haunt",
+        "name": "Haunt"
+      },
+      {
+        "slug": "fang-obsidian",
+        "name": "Obsidian"
+      },
+      {
+        "slug": "fang-relic",
+        "name": "Relic"
+      },
+      {
+        "slug": "fang-saphira",
+        "name": "Saphira"
+      },
+      {
+        "slug": "fang-serpent",
+        "name": "Serpent"
+      },
+      {
+        "slug": "fang-wavesong",
+        "name": "Wavesong"
+      }
+    ]
+  },
+  "Flashbang": {
+    "kind": "grenade",
+    "weapon_slug": "flash",
+    "skins": [
+      {
+        "slug": "flash-solar",
+        "name": "Solar"
+      }
+    ]
+  },
+  "Flip Knife": {
+    "kind": "knife",
+    "weapon_slug": "flip",
+    "skins": [
+      {
+        "slug": "flip-arctic",
+        "name": "Arctic"
+      },
+      {
+        "slug": "flip-dragon-glass",
+        "name": "Dragon Glass"
+      },
+      {
+        "slug": "flip-frozen",
+        "name": "Frozen"
+      },
+      {
+        "slug": "flip-holiday-frost",
+        "name": "Holiday Frost"
+      },
+      {
+        "slug": "flip-magnalium",
+        "name": "Magnalium"
+      },
+      {
+        "slug": "flip-snow-camo",
+        "name": "Snow Camo"
+      },
+      {
+        "slug": "flip-stone-cold",
+        "name": "Stone Cold"
+      },
+      {
+        "slug": "flip-vortex",
+        "name": "Vortex"
+      }
+    ]
+  },
+  "FN-57": {
+    "kind": "pistol",
+    "weapon_slug": "fn",
+    "skins": [
+      {
+        "slug": "fn-fal-acid-carbon",
+        "name": "Fal Acid Carbon"
+      },
+      {
+        "slug": "fn-fal-aquamarine",
+        "name": "Fal Aquamarine"
+      },
+      {
+        "slug": "fn-fal-astral-rift",
+        "name": "Fal Astral Rift"
+      },
+      {
+        "slug": "fn-fal-basilisk",
+        "name": "Fal Basilisk"
+      },
+      {
+        "slug": "fn-fal-charred-wood",
+        "name": "Fal Charred Wood"
+      },
+      {
+        "slug": "fn-fal-christmas-symbol",
+        "name": "Fal Christmas Symbol"
+      },
+      {
+        "slug": "fn-fal-dusk-tide",
+        "name": "Fal Dusk Tide"
+      },
+      {
+        "slug": "fn-fal-leather",
+        "name": "Fal Leather"
+      },
+      {
+        "slug": "fn-fal-phoenix-risen",
+        "name": "Fal Phoenix Risen"
+      },
+      {
+        "slug": "fn-fal-pro",
+        "name": "Fal Pro"
+      },
+      {
+        "slug": "fn-fal-red-hot",
+        "name": "Fal Red Hot"
+      },
+      {
+        "slug": "fn-fal-scaleskitter",
+        "name": "Fal Scaleskitter"
+      },
+      {
+        "slug": "fn-fal-tactical",
+        "name": "Fal Tactical"
+      },
+      {
+        "slug": "fn-fal-verglas",
+        "name": "Fal Verglas"
+      }
+    ]
+  },
+  "Falchion": {
+    "kind": "knife",
+    "weapon_slug": "fs",
+    "skins": [
+      {
+        "slug": "fs-aquamarine",
+        "name": "Aquamarine"
+      },
+      {
+        "slug": "fs-camo-storm",
+        "name": "Camo Storm"
+      },
+      {
+        "slug": "fs-corrosion",
+        "name": "Corrosion"
+      },
+      {
+        "slug": "fs-demonic-fog",
+        "name": "Demonic Fog"
+      },
+      {
+        "slug": "fs-enforcer",
+        "name": "Enforcer"
+      },
+      {
+        "slug": "fs-hellspawn",
+        "name": "Hellspawn"
+      },
+      {
+        "slug": "fs-octopus",
+        "name": "Octopus"
+      },
+      {
+        "slug": "fs-ophidian",
+        "name": "Ophidian"
+      },
+      {
+        "slug": "fs-pink-shot",
+        "name": "Pink Shot"
+      },
+      {
+        "slug": "fs-poison",
+        "name": "Poison"
+      },
+      {
+        "slug": "fs-polymer",
+        "name": "Polymer"
+      },
+      {
+        "slug": "fs-royal-frost",
+        "name": "Royal Frost"
+      },
+      {
+        "slug": "fs-rush",
+        "name": "Rush"
+      },
+      {
+        "slug": "fs-tactical",
+        "name": "Tactical"
+      },
+      {
+        "slug": "fs-toxic",
+        "name": "Toxic"
+      },
+      {
+        "slug": "fs-venom",
+        "name": "Venom"
+      },
+      {
+        "slug": "fs-wraith",
+        "name": "Wraith"
+      },
+      {
+        "slug": "fs-zap",
+        "name": "Zap"
+      },
+      {
+        "slug": "fs-zone",
+        "name": "Zone"
+      }
+    ]
+  },
+  "G22": {
+    "kind": "sniper",
+    "weapon_slug": "g22",
+    "skins": [
+      {
+        "slug": "g22-briar",
+        "name": "Briar"
+      },
+      {
+        "slug": "g22-carbon",
+        "name": "Carbon"
+      },
+      {
+        "slug": "g22-casual",
+        "name": "Casual"
+      },
+      {
+        "slug": "g22-flock",
+        "name": "Flock"
+      },
+      {
+        "slug": "g22-frost-wyrm",
+        "name": "Frost Wyrm"
+      },
+      {
+        "slug": "g22-frozen",
+        "name": "Frozen"
+      },
+      {
+        "slug": "g22-haunt",
+        "name": "Haunt"
+      },
+      {
+        "slug": "g22-impulse",
+        "name": "Impulse"
+      },
+      {
+        "slug": "g22-inferno",
+        "name": "Inferno"
+      },
+      {
+        "slug": "g22-lion-lord",
+        "name": "Lion Lord"
+      },
+      {
+        "slug": "g22-monster",
+        "name": "Monster"
+      },
+      {
+        "slug": "g22-nest",
+        "name": "Nest"
+      },
+      {
+        "slug": "g22-pattern",
+        "name": "Pattern"
+      },
+      {
+        "slug": "g22-pixel-camouflage",
+        "name": "Pixel Camouflage"
+      },
+      {
+        "slug": "g22-relic",
+        "name": "Relic"
+      },
+      {
+        "slug": "g22-scale",
+        "name": "Scale"
+      },
+      {
+        "slug": "g22-starfall",
+        "name": "Starfall"
+      },
+      {
+        "slug": "g22-steel-grip",
+        "name": "Steel Grip"
+      },
+      {
+        "slug": "g22-white-carbon",
+        "name": "White Carbon"
+      },
+      {
+        "slug": "g22-yellow-line",
+        "name": "Yellow Line"
+      }
+    ]
+  },
+  "HE Grenade": {
+    "kind": "grenade",
+    "weapon_slug": "he",
+    "skins": [
+      {
+        "slug": "he-hanami",
+        "name": "Hanami"
+      }
+    ]
+  },
+  "J-Kommando": {
+    "kind": "knife",
+    "weapon_slug": "jkommando",
+    "skins": [
+      {
+        "slug": "jkommando-ancient",
+        "name": "Ancient"
+      },
+      {
+        "slug": "jkommando-augustite",
+        "name": "Augustite"
+      },
+      {
+        "slug": "jkommando-blight",
+        "name": "Blight"
+      },
+      {
+        "slug": "jkommando-floral",
+        "name": "Floral"
+      },
+      {
+        "slug": "jkommando-frozen",
+        "name": "Frozen"
+      },
+      {
+        "slug": "jkommando-luxury",
+        "name": "Luxury"
+      },
+      {
+        "slug": "jkommando-plasma",
+        "name": "Plasma"
+      },
+      {
+        "slug": "jkommando-prism",
+        "name": "Prism"
+      },
+      {
+        "slug": "jkommando-reaper",
+        "name": "Reaper"
+      }
+    ]
+  },
+  "Karambit": {
+    "kind": "knife",
+    "weapon_slug": "karambit",
+    "skins": [
+      {
+        "slug": "karambit-claw",
+        "name": "Claw"
+      },
+      {
+        "slug": "karambit-cold-flame",
+        "name": "Cold Flame"
+      },
+      {
+        "slug": "karambit-dragon-glass",
+        "name": "Dragon Glass"
+      },
+      {
+        "slug": "karambit-frozen",
+        "name": "Frozen"
+      },
+      {
+        "slug": "karambit-gold",
+        "name": "Gold"
+      },
+      {
+        "slug": "karambit-nebula",
+        "name": "Nebula"
+      },
+      {
+        "slug": "karambit-pelagia",
+        "name": "Pelagia"
+      },
+      {
+        "slug": "karambit-purple-camo",
+        "name": "Purple Camo"
+      },
+      {
+        "slug": "karambit-scratch",
+        "name": "Scratch"
+      },
+      {
+        "slug": "karambit-snow-camo",
+        "name": "Snow Camo"
+      },
+      {
+        "slug": "karambit-universe",
+        "name": "Universe"
+      },
+      {
+        "slug": "karambit-vermilion",
+        "name": "Vermilion"
+      },
+      {
+        "slug": "karambit-widows-weave",
+        "name": "Widows Weave"
+      },
+      {
+        "slug": "karambit-year-of-the-tiger",
+        "name": "Year Of The Tiger"
+      }
+    ]
+  },
+  "Default Knife": {
+    "kind": "knife",
+    "weapon_slug": "knife",
+    "skins": [
+      {
+        "slug": "knife-case-funsun",
+        "name": "Case Funsun"
+      },
+      {
+        "slug": "knife-case-kitsune-dreams",
+        "name": "Case Kitsune Dreams"
+      },
+      {
+        "slug": "knife-case-nightmare",
+        "name": "Case Nightmare"
+      }
+    ]
+  },
+  "Kukri": {
+    "kind": "knife",
+    "weapon_slug": "kukri",
+    "skins": [
+      {
+        "slug": "kukri-antique-silver",
+        "name": "Antique Silver"
+      },
+      {
+        "slug": "kukri-ares",
+        "name": "Ares"
+      },
+      {
+        "slug": "kukri-constellations",
+        "name": "Constellations"
+      },
+      {
+        "slug": "kukri-decay",
+        "name": "Decay"
+      },
+      {
+        "slug": "kukri-digital-burst",
+        "name": "Digital Burst"
+      },
+      {
+        "slug": "kukri-divine-power",
+        "name": "Divine Power"
+      },
+      {
+        "slug": "kukri-gold-trim",
+        "name": "Gold Trim"
+      },
+      {
+        "slug": "kukri-prophet",
+        "name": "Prophet"
+      },
+      {
+        "slug": "kukri-sea-glint",
+        "name": "Sea Glint"
+      }
+    ]
+  },
+  "Kunai": {
+    "kind": "knife",
+    "weapon_slug": "kunai",
+    "skins": [
+      {
+        "slug": "kunai-augustite",
+        "name": "Augustite"
+      },
+      {
+        "slug": "kunai-bone",
+        "name": "Bone"
+      },
+      {
+        "slug": "kunai-cold-flame",
+        "name": "Cold Flame"
+      },
+      {
+        "slug": "kunai-glitch",
+        "name": "Glitch"
+      },
+      {
+        "slug": "kunai-luxury",
+        "name": "Luxury"
+      },
+      {
+        "slug": "kunai-poison",
+        "name": "Poison"
+      },
+      {
+        "slug": "kunai-prism",
+        "name": "Prism"
+      },
+      {
+        "slug": "kunai-radiation",
+        "name": "Radiation"
+      },
+      {
+        "slug": "kunai-reaper",
+        "name": "Reaper"
+      },
+      {
+        "slug": "kunai-snow-camo",
+        "name": "Snow Camo"
+      },
+      {
+        "slug": "kunai-wavesong",
+        "name": "Wavesong"
+      }
+    ]
+  },
+  "M110": {
+    "kind": "sniper",
+    "weapon_slug": "m110",
+    "skins": [
+      {
+        "slug": "m110-celestial-beast",
+        "name": "Celestial Beast"
+      },
+      {
+        "slug": "m110-cyber",
+        "name": "Cyber"
+      },
+      {
+        "slug": "m110-dark-pact",
+        "name": "Dark Pact"
+      },
+      {
+        "slug": "m110-flow",
+        "name": "Flow"
+      },
+      {
+        "slug": "m110-grid",
+        "name": "Grid"
+      },
+      {
+        "slug": "m110-harbinger",
+        "name": "Harbinger"
+      },
+      {
+        "slug": "m110-pursuit",
+        "name": "Pursuit"
+      },
+      {
+        "slug": "m110-reach-keeper",
+        "name": "Reach Keeper"
+      },
+      {
+        "slug": "m110-stickerbomb",
+        "name": "Stickerbomb"
+      },
+      {
+        "slug": "m110-tech-shard",
+        "name": "Tech Shard"
+      },
+      {
+        "slug": "m110-themis",
+        "name": "Themis"
+      },
+      {
+        "slug": "m110-transition",
+        "name": "Transition"
+      },
+      {
+        "slug": "m110-year-of-the-tiger",
+        "name": "Year Of The Tiger"
+      },
+      {
+        "slug": "m110-z-07-marksman",
+        "name": "Z 07 Marksman"
+      }
+    ]
+  },
+  "M16": {
+    "kind": "rifle",
+    "weapon_slug": "m16",
+    "skins": [
+      {
+        "slug": "m16-4-years",
+        "name": "4 Years"
+      },
+      {
+        "slug": "m16-bigfoot",
+        "name": "Bigfoot"
+      },
+      {
+        "slug": "m16-camouflage",
+        "name": "Camouflage"
+      },
+      {
+        "slug": "m16-dust-devil",
+        "name": "Dust Devil"
+      },
+      {
+        "slug": "m16-facet",
+        "name": "Facet"
+      },
+      {
+        "slug": "m16-iron-will",
+        "name": "Iron Will"
+      },
+      {
+        "slug": "m16-mayhem",
+        "name": "Mayhem"
+      },
+      {
+        "slug": "m16-muraena",
+        "name": "Muraena"
+      },
+      {
+        "slug": "m16-needle",
+        "name": "Needle"
+      },
+      {
+        "slug": "m16-raiva",
+        "name": "Raiva"
+      },
+      {
+        "slug": "m16-retro-arcade",
+        "name": "Retro Arcade"
+      },
+      {
+        "slug": "m16-sea-glint",
+        "name": "Sea Glint"
+      },
+      {
+        "slug": "m16-sharpshooter",
+        "name": "Sharpshooter"
+      },
+      {
+        "slug": "m16-shogun-stripes",
+        "name": "Shogun Stripes"
+      },
+      {
+        "slug": "m16-triumphant",
+        "name": "Triumphant"
+      },
+      {
+        "slug": "m16-winged",
+        "name": "Winged"
+      },
+      {
+        "slug": "m16-wraithwood",
+        "name": "Wraithwood"
+      }
+    ]
+  },
+  "M4": {
+    "kind": "rifle",
+    "weapon_slug": "m4",
+    "skins": [
+      {
+        "slug": "m4-demon",
+        "name": "Demon"
+      },
+      {
+        "slug": "m4-flex",
+        "name": "Flex"
+      },
+      {
+        "slug": "m4-flock",
+        "name": "Flock"
+      },
+      {
+        "slug": "m4-grand-prix",
+        "name": "Grand Prix"
+      },
+      {
+        "slug": "m4-ironclad",
+        "name": "Ironclad"
+      },
+      {
+        "slug": "m4-kachi",
+        "name": "Kachi"
+      },
+      {
+        "slug": "m4-lizard",
+        "name": "Lizard"
+      },
+      {
+        "slug": "m4-minotaur",
+        "name": "Minotaur"
+      },
+      {
+        "slug": "m4-n-kai",
+        "name": "N Kai"
+      },
+      {
+        "slug": "m4-necromancer",
+        "name": "Necromancer"
+      },
+      {
+        "slug": "m4-night-wolf",
+        "name": "Night Wolf"
+      },
+      {
+        "slug": "m4-pixel-storm",
+        "name": "Pixel Storm"
+      },
+      {
+        "slug": "m4-powergame",
+        "name": "Powergame"
+      },
+      {
+        "slug": "m4-predator",
+        "name": "Predator"
+      },
+      {
+        "slug": "m4-pro",
+        "name": "Pro"
+      },
+      {
+        "slug": "m4-revival",
+        "name": "Revival"
+      },
+      {
+        "slug": "m4-ronin-mk56",
+        "name": "Ronin Mk56"
+      },
+      {
+        "slug": "m4-samurai",
+        "name": "Samurai"
+      },
+      {
+        "slug": "m4-sunset",
+        "name": "Sunset"
+      },
+      {
+        "slug": "m4-tiger",
+        "name": "Tiger"
+      }
+    ]
+  },
+  "M40": {
+    "kind": "sniper",
+    "weapon_slug": "m40",
+    "skins": [
+      {
+        "slug": "m40-arctic",
+        "name": "Arctic"
+      },
+      {
+        "slug": "m40-beagle",
+        "name": "Beagle"
+      },
+      {
+        "slug": "m40-constellations",
+        "name": "Constellations"
+      },
+      {
+        "slug": "m40-cursed-fire",
+        "name": "Cursed Fire"
+      },
+      {
+        "slug": "m40-daybreak",
+        "name": "Daybreak"
+      },
+      {
+        "slug": "m40-disguise",
+        "name": "Disguise"
+      },
+      {
+        "slug": "m40-grip",
+        "name": "Grip"
+      },
+      {
+        "slug": "m40-impale",
+        "name": "Impale"
+      },
+      {
+        "slug": "m40-monster",
+        "name": "Monster"
+      },
+      {
+        "slug": "m40-northern-lights",
+        "name": "Northern Lights"
+      },
+      {
+        "slug": "m40-pro",
+        "name": "Pro"
+      },
+      {
+        "slug": "m40-quake",
+        "name": "Quake"
+      },
+      {
+        "slug": "m40-skyfall",
+        "name": "Skyfall"
+      },
+      {
+        "slug": "m40-smolder",
+        "name": "Smolder"
+      },
+      {
+        "slug": "m40-stickerbomb",
+        "name": "Stickerbomb"
+      },
+      {
+        "slug": "m40-thief-of-the-christmas",
+        "name": "Thief Of The Christmas"
+      },
+      {
+        "slug": "m40-venom-shade",
+        "name": "Venom Shade"
+      },
+      {
+        "slug": "m40-winter-track",
+        "name": "Winter Track"
+      },
+      {
+        "slug": "m40-wyvern",
+        "name": "Wyvern"
+      }
+    ]
+  },
+  "M4A1": {
+    "kind": "rifle",
+    "weapon_slug": "m4a1",
+    "skins": [
+      {
+        "slug": "m4a1-bubblegum",
+        "name": "Bubblegum"
+      },
+      {
+        "slug": "m4a1-ferocity",
+        "name": "Ferocity"
+      },
+      {
+        "slug": "m4a1-immortal",
+        "name": "Immortal"
+      },
+      {
+        "slug": "m4a1-impact",
+        "name": "Impact"
+      },
+      {
+        "slug": "m4a1-king-v703",
+        "name": "King V703"
+      },
+      {
+        "slug": "m4a1-kitsune",
+        "name": "Kitsune"
+      },
+      {
+        "slug": "m4a1-mermaid",
+        "name": "Mermaid"
+      },
+      {
+        "slug": "m4a1-overdrive",
+        "name": "Overdrive"
+      },
+      {
+        "slug": "m4a1-paladin",
+        "name": "Paladin"
+      },
+      {
+        "slug": "m4a1-serpent",
+        "name": "Serpent"
+      },
+      {
+        "slug": "m4a1-sour",
+        "name": "Sour"
+      },
+      {
+        "slug": "m4a1-sparkling-gaze",
+        "name": "Sparkling Gaze"
+      },
+      {
+        "slug": "m4a1-stainless",
+        "name": "Stainless"
+      },
+      {
+        "slug": "m4a1-year-of-the-tiger",
+        "name": "Year Of The Tiger"
+      }
+    ]
+  },
+  "M60": {
+    "kind": "mg",
+    "weapon_slug": "m60",
+    "skins": [
+      {
+        "slug": "m60-ares",
+        "name": "Ares"
+      },
+      {
+        "slug": "m60-copper",
+        "name": "Copper"
+      },
+      {
+        "slug": "m60-demonic-fog",
+        "name": "Demonic Fog"
+      },
+      {
+        "slug": "m60-fatal",
+        "name": "Fatal"
+      },
+      {
+        "slug": "m60-flex",
+        "name": "Flex"
+      },
+      {
+        "slug": "m60-grunge",
+        "name": "Grunge"
+      },
+      {
+        "slug": "m60-mecha",
+        "name": "Mecha"
+      },
+      {
+        "slug": "m60-quantum",
+        "name": "Quantum"
+      },
+      {
+        "slug": "m60-spaceware",
+        "name": "Spaceware"
+      },
+      {
+        "slug": "m60-steam-beast",
+        "name": "Steam Beast"
+      },
+      {
+        "slug": "m60-turret",
+        "name": "Turret"
+      },
+      {
+        "slug": "m60-warp",
+        "name": "Warp"
+      },
+      {
+        "slug": "m60-y-20-raijin",
+        "name": "Y 20 Raijin"
+      }
+    ]
+  },
+  "M9 Bayonet": {
+    "kind": "knife",
+    "weapon_slug": "m9",
+    "skins": [
+      {
+        "slug": "m9-bayonet-amber-koi",
+        "name": "Amber Koi"
+      },
+      {
+        "slug": "m9-bayonet-ancient",
+        "name": "Ancient"
+      },
+      {
+        "slug": "m9-bayonet-blue-blood",
+        "name": "Blue Blood"
+      },
+      {
+        "slug": "m9-bayonet-dark-shiver",
+        "name": "Dark Shiver"
+      },
+      {
+        "slug": "m9-bayonet-digital-burst",
+        "name": "Digital Burst"
+      },
+      {
+        "slug": "m9-bayonet-dragon-glass",
+        "name": "Dragon Glass"
+      },
+      {
+        "slug": "m9-bayonet-frozen",
+        "name": "Frozen"
+      },
+      {
+        "slug": "m9-bayonet-kumo",
+        "name": "Kumo"
+      },
+      {
+        "slug": "m9-bayonet-scratch",
+        "name": "Scratch"
+      },
+      {
+        "slug": "m9-bayonet-universe",
+        "name": "Universe"
+      }
+    ]
+  },
+  "MAC-10": {
+    "kind": "smg",
+    "weapon_slug": "mac10",
+    "skins": [
+      {
+        "slug": "mac10-arcane-surge",
+        "name": "Arcane Surge"
+      },
+      {
+        "slug": "mac10-argo",
+        "name": "Argo"
+      },
+      {
+        "slug": "mac10-arid",
+        "name": "Arid"
+      },
+      {
+        "slug": "mac10-constellations",
+        "name": "Constellations"
+      },
+      {
+        "slug": "mac10-corrode",
+        "name": "Corrode"
+      },
+      {
+        "slug": "mac10-fatal-combo",
+        "name": "Fatal Combo"
+      },
+      {
+        "slug": "mac10-melt-away",
+        "name": "Melt Away"
+      },
+      {
+        "slug": "mac10-noxious",
+        "name": "Noxious"
+      },
+      {
+        "slug": "mac10-pixel-camouflage",
+        "name": "Pixel Camouflage"
+      },
+      {
+        "slug": "mac10-purple-mist",
+        "name": "Purple Mist"
+      },
+      {
+        "slug": "mac10-ruby-shadow",
+        "name": "Ruby Shadow"
+      },
+      {
+        "slug": "mac10-shogun-stripes",
+        "name": "Shogun Stripes"
+      },
+      {
+        "slug": "mac10-wild-rage",
+        "name": "Wild Rage"
+      }
+    ]
+  },
+  "MP5": {
+    "kind": "smg",
+    "weapon_slug": "mp5",
+    "skins": [
+      {
+        "slug": "mp5-4-years",
+        "name": "4 Years"
+      },
+      {
+        "slug": "mp5-blueprint",
+        "name": "Blueprint"
+      },
+      {
+        "slug": "mp5-dusk",
+        "name": "Dusk"
+      },
+      {
+        "slug": "mp5-gorgon",
+        "name": "Gorgon"
+      },
+      {
+        "slug": "mp5-insanity",
+        "name": "Insanity"
+      },
+      {
+        "slug": "mp5-iron",
+        "name": "Iron"
+      },
+      {
+        "slug": "mp5-northern-fury",
+        "name": "Northern Fury"
+      },
+      {
+        "slug": "mp5-project-z9",
+        "name": "Project Z9"
+      },
+      {
+        "slug": "mp5-reactor",
+        "name": "Reactor"
+      },
+      {
+        "slug": "mp5-silver-plated",
+        "name": "Silver Plated"
+      },
+      {
+        "slug": "mp5-space-blaster",
+        "name": "Space Blaster"
+      },
+      {
+        "slug": "mp5-tiles",
+        "name": "Tiles"
+      },
+      {
+        "slug": "mp5-vector",
+        "name": "Vector"
+      },
+      {
+        "slug": "mp5-water-gun",
+        "name": "Water Gun"
+      },
+      {
+        "slug": "mp5-zone",
+        "name": "Zone"
+      }
+    ]
+  },
+  "MP7": {
+    "kind": "smg",
+    "weapon_slug": "mp7",
+    "skins": [
+      {
+        "slug": "mp7-2-years",
+        "name": "2 Years"
+      },
+      {
+        "slug": "mp7-2-years-red",
+        "name": "2 Years Red"
+      },
+      {
+        "slug": "mp7-arcade",
+        "name": "Arcade"
+      },
+      {
+        "slug": "mp7-banana",
+        "name": "Banana"
+      },
+      {
+        "slug": "mp7-blizzard",
+        "name": "Blizzard"
+      },
+      {
+        "slug": "mp7-dawn",
+        "name": "Dawn"
+      },
+      {
+        "slug": "mp7-festal-wrap",
+        "name": "Festal Wrap"
+      },
+      {
+        "slug": "mp7-fright",
+        "name": "Fright"
+      },
+      {
+        "slug": "mp7-graffiti",
+        "name": "Graffiti"
+      },
+      {
+        "slug": "mp7-lich",
+        "name": "Lich"
+      },
+      {
+        "slug": "mp7-offroad",
+        "name": "Offroad"
+      },
+      {
+        "slug": "mp7-palace",
+        "name": "Palace"
+      },
+      {
+        "slug": "mp7-precision",
+        "name": "Precision"
+      },
+      {
+        "slug": "mp7-rebellion",
+        "name": "Rebellion"
+      },
+      {
+        "slug": "mp7-revival",
+        "name": "Revival"
+      },
+      {
+        "slug": "mp7-ridge",
+        "name": "Ridge"
+      },
+      {
+        "slug": "mp7-space-blaster",
+        "name": "Space Blaster"
+      },
+      {
+        "slug": "mp7-stickerbomb",
+        "name": "Stickerbomb"
+      },
+      {
+        "slug": "mp7-thorn",
+        "name": "Thorn"
+      },
+      {
+        "slug": "mp7-winter-sport",
+        "name": "Winter Sport"
+      }
+    ]
+  },
+  "P350": {
+    "kind": "pistol",
+    "weapon_slug": "p350",
+    "skins": [
+      {
+        "slug": "p350-4-years",
+        "name": "4 Years"
+      },
+      {
+        "slug": "p350-autumn",
+        "name": "Autumn"
+      },
+      {
+        "slug": "p350-blizzard",
+        "name": "Blizzard"
+      },
+      {
+        "slug": "p350-festal-wrap",
+        "name": "Festal Wrap"
+      },
+      {
+        "slug": "p350-forest-spirit",
+        "name": "Forest Spirit"
+      },
+      {
+        "slug": "p350-gearshift",
+        "name": "Gearshift"
+      },
+      {
+        "slug": "p350-impact",
+        "name": "Impact"
+      },
+      {
+        "slug": "p350-ink-spree",
+        "name": "Ink Spree"
+      },
+      {
+        "slug": "p350-nano",
+        "name": "Nano"
+      },
+      {
+        "slug": "p350-neon",
+        "name": "Neon"
+      },
+      {
+        "slug": "p350-oni",
+        "name": "Oni"
+      },
+      {
+        "slug": "p350-ooze",
+        "name": "Ooze"
+      },
+      {
+        "slug": "p350-radiation",
+        "name": "Radiation"
+      },
+      {
+        "slug": "p350-raider",
+        "name": "Raider"
+      },
+      {
+        "slug": "p350-rally",
+        "name": "Rally"
+      },
+      {
+        "slug": "p350-rhino",
+        "name": "Rhino"
+      },
+      {
+        "slug": "p350-sandspirit",
+        "name": "Sandspirit"
+      },
+      {
+        "slug": "p350-savannah",
+        "name": "Savannah"
+      },
+      {
+        "slug": "p350-skull",
+        "name": "Skull"
+      },
+      {
+        "slug": "p350-tag-king",
+        "name": "Tag King"
+      },
+      {
+        "slug": "p350-vitrum",
+        "name": "Vitrum"
+      }
+    ]
+  },
+  "P90": {
+    "kind": "smg",
+    "weapon_slug": "p90",
+    "skins": [
+      {
+        "slug": "p90-clash",
+        "name": "Clash"
+      },
+      {
+        "slug": "p90-cold-lead",
+        "name": "Cold Lead"
+      },
+      {
+        "slug": "p90-dragon-flame",
+        "name": "Dragon Flame"
+      },
+      {
+        "slug": "p90-fissure",
+        "name": "Fissure"
+      },
+      {
+        "slug": "p90-fusion-core",
+        "name": "Fusion Core"
+      },
+      {
+        "slug": "p90-ghoul",
+        "name": "Ghoul"
+      },
+      {
+        "slug": "p90-iron-will",
+        "name": "Iron Will"
+      },
+      {
+        "slug": "p90-jungle",
+        "name": "Jungle"
+      },
+      {
+        "slug": "p90-nebula",
+        "name": "Nebula"
+      },
+      {
+        "slug": "p90-noir",
+        "name": "Noir"
+      },
+      {
+        "slug": "p90-oops",
+        "name": "Oops"
+      },
+      {
+        "slug": "p90-oracle",
+        "name": "Oracle"
+      },
+      {
+        "slug": "p90-pilot",
+        "name": "Pilot"
+      },
+      {
+        "slug": "p90-purple-mist",
+        "name": "Purple Mist"
+      },
+      {
+        "slug": "p90-radiation",
+        "name": "Radiation"
+      },
+      {
+        "slug": "p90-revenant",
+        "name": "Revenant"
+      },
+      {
+        "slug": "p90-ronin-mk9",
+        "name": "Ronin Mk9"
+      },
+      {
+        "slug": "p90-samurai",
+        "name": "Samurai"
+      },
+      {
+        "slug": "p90-unstoppable",
+        "name": "Unstoppable"
+      },
+      {
+        "slug": "p90-z-50-fujin",
+        "name": "Z 50 Fujin"
+      }
+    ]
+  },
+  "SM1014": {
+    "kind": "shotgun",
+    "weapon_slug": "sm1014",
+    "skins": [
+      {
+        "slug": "sm1014-arctic",
+        "name": "Arctic"
+      },
+      {
+        "slug": "sm1014-blaster",
+        "name": "Blaster"
+      },
+      {
+        "slug": "sm1014-bolt",
+        "name": "Bolt"
+      },
+      {
+        "slug": "sm1014-branches",
+        "name": "Branches"
+      },
+      {
+        "slug": "sm1014-facet",
+        "name": "Facet"
+      },
+      {
+        "slug": "sm1014-fatal-combo",
+        "name": "Fatal Combo"
+      },
+      {
+        "slug": "sm1014-freezing-gasp",
+        "name": "Freezing Gasp"
+      },
+      {
+        "slug": "sm1014-necromancer",
+        "name": "Necromancer"
+      },
+      {
+        "slug": "sm1014-northern-camouflage",
+        "name": "Northern Camouflage"
+      },
+      {
+        "slug": "sm1014-pathfinder",
+        "name": "Pathfinder"
+      },
+      {
+        "slug": "sm1014-piranha",
+        "name": "Piranha"
+      },
+      {
+        "slug": "sm1014-quake",
+        "name": "Quake"
+      },
+      {
+        "slug": "sm1014-serpent",
+        "name": "Serpent"
+      },
+      {
+        "slug": "sm1014-triton",
+        "name": "Triton"
+      },
+      {
+        "slug": "sm1014-tropic",
+        "name": "Tropic"
+      },
+      {
+        "slug": "sm1014-wasp",
+        "name": "Wasp"
+      },
+      {
+        "slug": "sm1014-wave",
+        "name": "Wave"
+      }
+    ]
+  },
+  "TEC-9": {
+    "kind": "pistol",
+    "weapon_slug": "tec",
+    "skins": [
+      {
+        "slug": "tec-9-aurora",
+        "name": "9 Aurora"
+      },
+      {
+        "slug": "tec-9-dalmatian",
+        "name": "9 Dalmatian"
+      },
+      {
+        "slug": "tec-9-disguise",
+        "name": "9 Disguise"
+      },
+      {
+        "slug": "tec-9-fable",
+        "name": "9 Fable"
+      },
+      {
+        "slug": "tec-9-gangster",
+        "name": "9 Gangster"
+      },
+      {
+        "slug": "tec-9-glitch",
+        "name": "9 Glitch"
+      },
+      {
+        "slug": "tec-9-necromancer",
+        "name": "9 Necromancer"
+      },
+      {
+        "slug": "tec-9-needle",
+        "name": "9 Needle"
+      },
+      {
+        "slug": "tec-9-night-slayer",
+        "name": "9 Night Slayer"
+      },
+      {
+        "slug": "tec-9-reactor",
+        "name": "9 Reactor"
+      },
+      {
+        "slug": "tec-9-restless",
+        "name": "9 Restless"
+      },
+      {
+        "slug": "tec-9-royal-frost",
+        "name": "9 Royal Frost"
+      },
+      {
+        "slug": "tec-9-splash",
+        "name": "9 Splash"
+      },
+      {
+        "slug": "tec-9-splinter-storm",
+        "name": "9 Splinter Storm"
+      },
+      {
+        "slug": "tec-9-stickerbomb",
+        "name": "9 Stickerbomb"
+      },
+      {
+        "slug": "tec-9-tie-dye",
+        "name": "9 Tie Dye"
+      },
+      {
+        "slug": "tec-9-tropic",
+        "name": "9 Tropic"
+      },
+      {
+        "slug": "tec-9-ultimatum",
+        "name": "9 Ultimatum"
+      },
+      {
+        "slug": "tec-9-verglas",
+        "name": "9 Verglas"
+      }
+    ]
+  },
+  "UMP-45": {
+    "kind": "smg",
+    "weapon_slug": "ump45",
+    "skins": [
+      {
+        "slug": "ump45-4-years",
+        "name": "4 Years"
+      },
+      {
+        "slug": "ump45-arid",
+        "name": "Arid"
+      },
+      {
+        "slug": "ump45-beast",
+        "name": "Beast"
+      },
+      {
+        "slug": "ump45-cerberus",
+        "name": "Cerberus"
+      },
+      {
+        "slug": "ump45-cyberpunk",
+        "name": "Cyberpunk"
+      },
+      {
+        "slug": "ump45-gas",
+        "name": "Gas"
+      },
+      {
+        "slug": "ump45-geometric",
+        "name": "Geometric"
+      },
+      {
+        "slug": "ump45-heatwave",
+        "name": "Heatwave"
+      },
+      {
+        "slug": "ump45-industrial",
+        "name": "Industrial"
+      },
+      {
+        "slug": "ump45-iron",
+        "name": "Iron"
+      },
+      {
+        "slug": "ump45-luminous",
+        "name": "Luminous"
+      },
+      {
+        "slug": "ump45-peaceful-dream",
+        "name": "Peaceful Dream"
+      },
+      {
+        "slug": "ump45-pixel",
+        "name": "Pixel"
+      },
+      {
+        "slug": "ump45-pixel-v2",
+        "name": "Pixel V2"
+      },
+      {
+        "slug": "ump45-shark",
+        "name": "Shark"
+      },
+      {
+        "slug": "ump45-spirit",
+        "name": "Spirit"
+      },
+      {
+        "slug": "ump45-vhs",
+        "name": "Vhs"
+      },
+      {
+        "slug": "ump45-warchief",
+        "name": "Warchief"
+      },
+      {
+        "slug": "ump45-white-carbon",
+        "name": "White Carbon"
+      },
+      {
+        "slug": "ump45-winged",
+        "name": "Winged"
+      }
+    ]
+  },
+  "USP": {
+    "kind": "pistol",
+    "weapon_slug": "usp",
+    "skins": [
+      {
+        "slug": "usp-2-years",
+        "name": "2 Years"
+      },
+      {
+        "slug": "usp-2-years-red",
+        "name": "2 Years Red"
+      },
+      {
+        "slug": "usp-chameleon",
+        "name": "Chameleon"
+      },
+      {
+        "slug": "usp-corrode",
+        "name": "Corrode"
+      },
+      {
+        "slug": "usp-digital-burst",
+        "name": "Digital Burst"
+      },
+      {
+        "slug": "usp-fiend",
+        "name": "Fiend"
+      },
+      {
+        "slug": "usp-genesis",
+        "name": "Genesis"
+      },
+      {
+        "slug": "usp-geometric",
+        "name": "Geometric"
+      },
+      {
+        "slug": "usp-ghosts",
+        "name": "Ghosts"
+      },
+      {
+        "slug": "usp-griffin",
+        "name": "Griffin"
+      },
+      {
+        "slug": "usp-hunter-02",
+        "name": "Hunter 02"
+      },
+      {
+        "slug": "usp-ignite",
+        "name": "Ignite"
+      },
+      {
+        "slug": "usp-line",
+        "name": "Line"
+      },
+      {
+        "slug": "usp-mirage-menace",
+        "name": "Mirage Menace"
+      },
+      {
+        "slug": "usp-pisces",
+        "name": "Pisces"
+      },
+      {
+        "slug": "usp-purple-camo",
+        "name": "Purple Camo"
+      },
+      {
+        "slug": "usp-rainforest",
+        "name": "Rainforest"
+      },
+      {
+        "slug": "usp-ray",
+        "name": "Ray"
+      },
+      {
+        "slug": "usp-stickerbomb",
+        "name": "Stickerbomb"
+      },
+      {
+        "slug": "usp-stone-cold",
+        "name": "Stone Cold"
+      },
+      {
+        "slug": "usp-suture",
+        "name": "Suture"
+      }
+    ]
+  }
+}
