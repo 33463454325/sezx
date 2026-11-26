@@ -29,6 +29,8 @@ CATS = [
 ]
 
 ASSETS_DIR = "/home/user/sezx/assets/skins"
+BRAND_DIR  = "/home/user/sezx/assets/brand"
+LOGO_PATH  = os.path.join(BRAND_DIR, "vektor_logo.png")
 with open(os.path.join(ASSETS_DIR, "catalog.json")) as f:
     CATALOG = json.load(f)
 
@@ -109,6 +111,24 @@ def gradient_bg(img):
         g = int(BG_A[1] * (1-t) + BG_B[1] * t)
         b = int(BG_A[2] * (1-t) + BG_B[2] * t)
         d.line([(0, y), (W, y)], fill=(r, g, b))
+    # Vektor watermark — крупное, по центру, прозрачное 10%
+    if os.path.exists(LOGO_PATH):
+        logo = Image.open(LOGO_PATH).convert("RGBA")
+        target_h = int(H * 0.85)
+        aspect = logo.width / logo.height
+        target_w = int(target_h * aspect)
+        logo = logo.resize((target_w, target_h), Image.LANCZOS)
+        px = logo.load()
+        for y in range(logo.height):
+            for x in range(logo.width):
+                r, g, b, a = px[x, y]
+                # приглушаем ярко-красные пиксели до 10%
+                mx = max(r, g, b)
+                if mx < 20:
+                    px[x, y] = (0, 0, 0, 0)
+                else:
+                    px[x, y] = (r, g, b, 26)
+        img.alpha_composite(logo, ((W - target_w) // 2, (H - target_h) // 2))
 
 def paste_skin(img, slug, box):
     p = os.path.join(ASSETS_DIR, slug + ".png")
@@ -124,17 +144,19 @@ def paste_skin(img, slug, box):
                               y*SCALE + (th - nh)//2))
     return True
 
-def draw_header(d):
+def draw_header(img, d):
     for y in range(76):
         t = y / 76
         r = int(60 * (1-t) + 20 * t)
         g = int(14 * (1-t) + 10 * t)
         b = int(40 * (1-t) + 26 * t)
         d.line([(0, y*SCALE), (W, y*SCALE)], fill=(r, g, b), width=SCALE)
-    rrect(d, (22, 16, 54, 48), 8, ACCENT)
-    text(d, (29, 21), "S2", f_h3, WHITE)
-    text(d, (66, 10), "so2mm", f_hero, WHITE)
-    text(d, (66, 44), "тёмно-красная · arm64 · v2.4.1 · Скины",
+    if os.path.exists(LOGO_PATH):
+        logo = Image.open(LOGO_PATH).convert("RGBA").resize(
+            (64*SCALE, 64*SCALE), Image.LANCZOS)
+        img.alpha_composite(logo, (12*SCALE, 6*SCALE))
+    text(d, (88, 8), "VEKTOR", f_hero, WHITE)
+    text(d, (88, 44), "тёмно-красная · arm64 · v2.4.1 · Скины",
          f_desc, SECOND, max_w=W_FINAL//2)
     cx = W_FINAL - 302
     rrect(d, (cx, 14, W_FINAL - 22, 58), 14, (18, 8, 26), outline=HAIR, width=1)
@@ -310,7 +332,7 @@ os.makedirs(OUT, exist_ok=True)
 img = Image.new("RGBA", (W, H), BG_A)
 gradient_bg(img)
 d = ImageDraw.Draw(img, "RGBA")
-draw_header(d)
+draw_header(img, d)
 draw_sidebar(d)
 
 MX = 18 + 216 + 14
