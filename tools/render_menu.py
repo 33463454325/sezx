@@ -1,17 +1,19 @@
 from PIL import Image, ImageDraw, ImageFont
 
-W, H = 1180, 1000
+W, H = 1240, 920
 
-BG       = (242, 242, 247, 255)
-CARD     = (255, 255, 255, 255)
-HAIR     = (198, 198, 200, 255)
-LABEL    = (0, 0, 0, 255)
-SECOND   = (90, 90, 95, 255)
-TERTIARY = (170, 170, 175, 255)
-BLUE     = (0, 122, 255, 255)
-GREEN_ON = (52, 199, 89, 255)
-GRAY_OFF = (229, 229, 234, 255)
-RED      = (255, 59, 48, 255)
+BG       = (14, 5, 7, 255)
+PANEL    = (26, 9, 13, 255)
+PANEL2   = (36, 12, 18, 255)
+HAIR     = (70, 20, 30, 255)
+LABEL    = (238, 230, 232, 255)
+SECOND   = (170, 130, 140, 255)
+TERTIARY = (110, 80, 90, 255)
+RED      = (235, 55, 72, 255)
+RED_HI   = (255, 95, 110, 255)
+RED_DIM  = (120, 20, 30, 255)
+GREEN    = (90, 220, 130, 255)
+YELLOW   = (235, 200, 70, 255)
 
 img = Image.new("RGBA", (W, H), BG)
 d = ImageDraw.Draw(img)
@@ -24,140 +26,164 @@ def font(paths, size):
 
 SFB = ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"]
 SF  = ["/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
-
-f_large = font(SFB, 34)
-f_title = font(SFB, 22)
-f_row   = font(SF,  18)
-f_sub   = font(SF,  15)
-f_small = font(SF,  13)
+f_hero  = font(SFB, 30)
+f_title = font(SFB, 20)
+f_row   = font(SF,  17)
+f_sub   = font(SF,  14)
+f_small = font(SF,  12)
 f_badge = font(SFB, 11)
 
 def rrect(xy, r, fill, outline=None, width=1):
     d.rounded_rectangle(xy, radius=r, fill=fill, outline=outline, width=width)
 
 def switch(x, y, on):
-    w, h = 50, 30
-    track = GREEN_ON if on else GRAY_OFF
+    w, h = 44, 26
+    track = RED if on else (60, 30, 36, 255)
     rrect((x, y, x+w, y+h), h//2, track)
     knob_x = x + (w - h + 2) if on else x + 2
-    d.ellipse((knob_x, y+2, knob_x+h-4, y+h-2), fill=(255,255,255,255))
+    d.ellipse((knob_x, y+2, knob_x+h-4, y+h-2), fill=(245, 230, 232, 255))
 
-def chevron(x, y):
-    d.line((x, y-5, x+6, y, x, y+5), fill=TERTIARY, width=2)
+# header
+rrect((0, 0, W, 72), 0, (20, 7, 10, 255))
+d.text((28, 22), "so2mm", font=f_hero, fill=RED_HI)
+d.text((140, 32), "dark red  ·  v2.4  ·  arm64-v8a", font=f_sub, fill=SECOND)
+# license chip
+chip_x = W - 230
+rrect((chip_x, 22, W-28, 50), 14, (34, 12, 16, 255), outline=RED_DIM, width=1)
+d.ellipse((chip_x+10, 30, chip_x+22, 42), fill=GREEN)
+d.text((chip_x+30, 28), "License  OK  ·  63 days", font=f_sub, fill=LABEL)
 
-d.rectangle((0, 0, W, 90), fill=BG)
-d.text((36, 20), "‹ Settings", font=f_row, fill=BLUE)
-d.text((36, 48), "Skins", font=f_large, fill=LABEL)
-
-tabs = ["Aim", "ESP", "Weapon", "Move", "Skins", "Guard", "Config"]
-active = 4
-seg_x, seg_y, seg_w, seg_h = 36, 104, W - 72, 38
-rrect((seg_x, seg_y, seg_x+seg_w, seg_y+seg_h), 9, (120,120,128, 50))
-cell_w = seg_w / len(tabs)
-for i, t in enumerate(tabs):
-    cx = seg_x + i*cell_w
-    if i == active:
-        rrect((cx+2, seg_y+2, cx+cell_w-2, seg_y+seg_h-2), 8, CARD)
-    tw = d.textlength(t, font=f_row)
-    d.text((cx + (cell_w - tw)/2, seg_y + 8), t, font=f_row,
-           fill=LABEL if i == active else SECOND)
-
-sec_y = seg_y + seg_h + 24
-d.text((48, sec_y - 22), "SKIN CHANGER", font=f_small, fill=SECOND)
-rrect((36, sec_y, W-36, sec_y+56), 12, CARD)
-d.text((56, sec_y+18), "Enable", font=f_row, fill=LABEL)
-switch(W - 36 - 18 - 50, sec_y + 13, on=True)
-
-sec2_y = sec_y + 56 + 28
-d.text((48, sec2_y - 22), "WEAPONS", font=f_small, fill=SECOND)
-left_w = 320
-card_h = 480
-rrect((36, sec2_y, 36+left_w, sec2_y+card_h), 12, CARD)
-right_x = 36 + left_w + 14
-right_w = W - 36 - right_x
-rrect((right_x, sec2_y, right_x+right_w, sec2_y+card_h), 12, CARD)
-
-weapons = ["AKR", "M4", "AWM", "Desert Eagle", "USP", "Glock-18",
-           "Karambit", "M9 Bayonet", "Butterfly"]
-counts = [14, 2, 2, 2, 1, 1, 2, 2, 2]
-sel_w = 0
-row_h = 46
-for i, (w, c) in enumerate(zip(weapons, counts)):
-    ry = sec2_y + 8 + i*row_h
-    if i == sel_w:
-        rrect((36+6, ry-2, 36+left_w-6, ry+row_h-6), 8, (0, 122, 255, 30))
-    d.text((56, ry+12), w, font=f_row, fill=LABEL)
-    tw = d.textlength(str(c), font=f_sub)
-    d.text((36+left_w - 44 - tw, ry+14), str(c), font=f_sub, fill=SECOND)
-    chevron(36+left_w - 26, ry + row_h/2 - 2)
-    if i < len(weapons)-1:
-        d.line((56, ry+row_h-4, 36+left_w-14, ry+row_h-4), fill=HAIR, width=1)
-
-skins = [
-    ("Default",          True,  False),
-    ("Steel Grip",       True,  False),
-    ("Tiger",            True,  True),
-    ("Sport",            True,  False),
-    ("2Years Red",       True,  True),
-    ("Treasure Hunter",  True,  True),
-    ("Galaxy",           False, False),
-    ("Neon Tiger",       False, False),
-    ("Dragon",           False, True),
-    ("Evolution",        False, False),
+# sidebar tabs
+SB_X, SB_Y, SB_W = 20, 92, 180
+rrect((SB_X, SB_Y, SB_X+SB_W, H-20), 14, PANEL)
+tabs = [
+    ("Aim",      True,  False),
+    ("ESP",      False, False),
+    ("Weapon",   False, False),
+    ("Move",     False, False),
+    ("View",     False, False),
+    ("HUD",      False, False),
+    ("Utility",  False, False),
+    ("Skins",    False, False),
+    ("Guard",    False, False),
+    ("Profiles", False, False),
+    ("License",  False, False),
 ]
-sel_s = 4
-d.text((right_x+20, sec2_y+14), "AKR", font=f_title, fill=LABEL)
-d.text((right_x+right_w-110, sec2_y+20), "14 skins", font=f_sub, fill=SECOND)
-d.line((right_x+20, sec2_y+54, right_x+right_w-20, sec2_y+54), fill=HAIR, width=1)
+for i, (name, active, _) in enumerate(tabs):
+    ry = SB_Y + 16 + i*54
+    if active:
+        rrect((SB_X+8, ry-2, SB_X+SB_W-8, ry+40), 10, (60, 15, 22, 255))
+        d.rectangle((SB_X+8, ry-2, SB_X+12, ry+40), fill=RED)
+    d.text((SB_X+28, ry+10), name, font=f_row,
+           fill=RED_HI if active else LABEL if not active else SECOND)
 
-base_y = sec2_y + 66
-rh = 40
-for i, (name, verified, st) in enumerate(skins):
-    ry = base_y + i*rh
-    if i == sel_s:
-        rrect((right_x+6, ry-2, right_x+right_w-6, ry+rh-6), 8, (0, 122, 255, 30))
-        d.ellipse((right_x+right_w-32, ry+rh/2-8, right_x+right_w-16, ry+rh/2+8), fill=BLUE)
-        d.line((right_x+right_w-28, ry+rh/2+1, right_x+right_w-23, ry+rh/2+5,
-                right_x+right_w-19, ry+rh/2-3), fill=(255,255,255,255), width=2)
-    d.text((right_x+20, ry+10), name, font=f_row, fill=LABEL)
-    tag_x = right_x + 20 + d.textlength(name, font=f_row) + 10
-    if verified:
-        rrect((tag_x, ry+12, tag_x+18, ry+28), 4, (52,199,89, 50))
-        d.text((tag_x+5, ry+13), "✓", font=f_badge, fill=GREEN_ON)
-    else:
-        rrect((tag_x, ry+12, tag_x+18, ry+28), 4, (255,204,0, 50))
-        d.text((tag_x+7, ry+13), "?", font=f_badge, fill=(180,120,0,255))
-    tag_x += 24
-    if st:
-        rrect((tag_x, ry+12, tag_x+30, ry+28), 4, (255,59,48, 50))
-        d.text((tag_x+6, ry+14), "ST", font=f_badge, fill=RED)
-    if i < len(skins)-1:
-        d.line((right_x+20, ry+rh-4, right_x+right_w-20, ry+rh-4), fill=HAIR, width=1)
+# main body
+MB_X = SB_X + SB_W + 16
+MB_W = W - MB_X - 20
+MB_Y = 92
 
-sec3_y = sec2_y + card_h + 28
-rrect((36, sec3_y, W-36, sec3_y+150), 12, CARD)
-d.text((56, sec3_y+18), "StatTrak", font=f_row, fill=LABEL)
-switch(W - 36 - 18 - 50, sec3_y + 13, on=True)
-d.line((56, sec3_y+56, W-56, sec3_y+56), fill=HAIR, width=1)
+# title row
+d.text((MB_X+4, MB_Y+2), "Aim", font=f_hero, fill=LABEL)
+d.text((MB_X+4, MB_Y+40), "target · trigger · knife", font=f_sub, fill=SECOND)
 
-d.text((56, sec3_y+70), "Wear", font=f_row, fill=LABEL)
-d.text((W-220, sec3_y+70), "0.070  ·  Factory New", font=f_sub, fill=SECOND)
-bar_x1, bar_x2 = 56, W - 56
-by = sec3_y + 115
-d.rounded_rectangle((bar_x1, by-3, bar_x2, by+3), 3, fill=(120,120,128, 60))
-fill_px = int(bar_x1 + (bar_x2-bar_x1) * 0.07)
-d.rounded_rectangle((bar_x1, by-3, fill_px, by+3), 3, fill=BLUE)
-d.ellipse((fill_px-12, by-12, fill_px+12, by+12), fill=CARD, outline=(0,0,0,30), width=1)
+# profile pill
+pp_w = 260
+pp_x = MB_X + MB_W - pp_w
+rrect((pp_x, MB_Y+14, pp_x+pp_w, MB_Y+46), 10, PANEL2, outline=RED_DIM, width=1)
+d.text((pp_x+14, MB_Y+20), "Profile:", font=f_sub, fill=SECOND)
+d.text((pp_x+78, MB_Y+20), "comp_ak  ▾", font=f_row, fill=LABEL)
 
-apply_y = sec3_y + 150 + 20
-rrect((36, apply_y, W-36, apply_y+52), 12, BLUE)
-label = "Apply to Loadout"
-tw = d.textlength(label, font=f_title)
-d.text(((W - tw)/2, apply_y+13), label, font=f_title, fill=(255,255,255,255))
+# TARGET card
+card_y = MB_Y + 74
+card_h = 260
+rrect((MB_X, card_y, MB_X+MB_W, card_y+card_h), 14, PANEL)
+d.text((MB_X+20, card_y+14), "TARGET", font=f_badge, fill=SECOND)
+rows = [
+    ("Aimbot",       True),
+    ("Silent aim",   True),
+    ("Visible only", True),
+    ("Multi-point",  True),
+    ("Prediction",   True),
+    ("Draw FOV",     True),
+]
+for i, (name, on) in enumerate(rows):
+    ry = card_y + 40 + i*32
+    d.text((MB_X+28, ry+4), name, font=f_row, fill=LABEL)
+    switch(MB_X + MB_W - 68, ry, on)
 
-d.text((W//2 - 230, apply_y + 68),
-       "Local only  ·  server never sees the swap  ·  AKR • 2Years Red (ST)",
+# sliders column
+sy = card_y + 40
+d.text((MB_X + MB_W/2, sy+4), "FOV (px)", font=f_row, fill=LABEL)
+bar_x1, bar_x2 = MB_X + MB_W/2, MB_X + MB_W - 100
+rrect((bar_x1, sy+36, bar_x2, sy+42), 3, (60, 30, 36, 255))
+fx = bar_x1 + (bar_x2-bar_x1) * 0.42
+rrect((bar_x1, sy+36, fx, sy+42), 3, RED)
+d.ellipse((fx-10, sy+30, fx+10, sy+48), fill=(245, 230, 232, 255))
+d.text((bar_x2 + 10, sy+32), "248", font=f_row, fill=LABEL)
+
+sy2 = sy + 70
+d.text((MB_X + MB_W/2, sy2+4), "Smooth", font=f_row, fill=LABEL)
+rrect((bar_x1, sy2+36, bar_x2, sy2+42), 3, (60, 30, 36, 255))
+fx2 = bar_x1 + (bar_x2-bar_x1) * 0.25
+rrect((bar_x1, sy2+36, fx2, sy2+42), 3, RED)
+d.ellipse((fx2-10, sy2+30, fx2+10, sy2+48), fill=(245, 230, 232, 255))
+d.text((bar_x2 + 10, sy2+32), "0.25", font=f_row, fill=LABEL)
+
+# Bone pills
+sy3 = sy2 + 70
+d.text((MB_X + MB_W/2, sy3+4), "Bone", font=f_row, fill=LABEL)
+bones = ["head", "chest", "pelvis"]
+bx = MB_X + MB_W/2
+for i, b in enumerate(bones):
+    fill = RED if i == 0 else PANEL2
+    rrect((bx, sy3+36, bx+90, sy3+68), 10, fill, outline=RED_DIM, width=1)
+    tw = d.textlength(b, font=f_row)
+    d.text((bx + (90-tw)/2, sy3+42), b, font=f_row, fill=LABEL if i == 0 else SECOND)
+    bx += 98
+
+# TRIGGER card
+t_y = card_y + card_h + 18
+t_h = 150
+rrect((MB_X, t_y, MB_X+MB_W, t_y+t_h), 14, PANEL)
+d.text((MB_X+20, t_y+14), "TRIGGER", font=f_badge, fill=SECOND)
+trows = [("Trigger bot", True), ("Only when scoped", False)]
+for i, (name, on) in enumerate(trows):
+    ry = t_y + 40 + i*34
+    d.text((MB_X+28, ry+4), name, font=f_row, fill=LABEL)
+    switch(MB_X + MB_W/2 - 60, ry, on)
+# delay slider
+sy = t_y + 40
+d.text((MB_X + MB_W/2 + 10, sy+4), "Delay (ms)", font=f_row, fill=LABEL)
+bar_x1, bar_x2 = MB_X + MB_W/2 + 10, MB_X + MB_W - 100
+rrect((bar_x1, sy+36, bar_x2, sy+42), 3, (60, 30, 36, 255))
+fx = bar_x1 + (bar_x2-bar_x1) * 0.12
+rrect((bar_x1, sy+36, fx, sy+42), 3, RED)
+d.ellipse((fx-10, sy+30, fx+10, sy+48), fill=(245, 230, 232, 255))
+d.text((bar_x2+10, sy+32), "24", font=f_row, fill=LABEL)
+
+# KNIFE card
+k_y = t_y + t_h + 18
+k_h = 150
+rrect((MB_X, k_y, MB_X+MB_W, k_y+k_h), 14, PANEL)
+d.text((MB_X+20, k_y+14), "KNIFE", font=f_badge, fill=SECOND)
+krows = [("Knife aura", True), ("Rapid knife", False)]
+for i, (name, on) in enumerate(krows):
+    ry = k_y + 40 + i*34
+    d.text((MB_X+28, ry+4), name, font=f_row, fill=LABEL)
+    switch(MB_X + MB_W/2 - 60, ry, on)
+sy = k_y + 40
+d.text((MB_X + MB_W/2 + 10, sy+4), "Range (m)", font=f_row, fill=LABEL)
+bar_x1, bar_x2 = MB_X + MB_W/2 + 10, MB_X + MB_W - 100
+rrect((bar_x1, sy+36, bar_x2, sy+42), 3, (60, 30, 36, 255))
+fx = bar_x1 + (bar_x2-bar_x1) * 0.55
+rrect((bar_x1, sy+36, fx, sy+42), 3, RED)
+d.ellipse((fx-10, sy+30, fx+10, sy+48), fill=(245, 230, 232, 255))
+d.text((bar_x2+10, sy+32), "2.8", font=f_row, fill=LABEL)
+
+# footer
+d.text((MB_X+4, H-40), "HWID 1a2c…85fb · Fairplay neutered · 12 hooks shadowed · 3 scanner threads frozen",
        font=f_small, fill=SECOND)
+d.text((W-180, H-40), "three-finger tap", font=f_small, fill=TERTIARY)
 
 out = "/tmp/claude-0/-home-user-sezx/c19d3923-cc31-59a5-a153-26878d244cef/scratchpad/so2mm_menu.png"
 img.convert("RGB").save(out, "PNG")
