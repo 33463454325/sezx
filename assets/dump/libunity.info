@@ -1,0 +1,89 @@
+unpack/lib/arm64-v8a/libunity.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[xxHash]=69815f2befe135c2, stripped
+Size: 217739936
+SHA256: ba0966976204fa3f7a2755c9588d32299fe7eb794b712c9f1a444e046cbe7c13
+There are 27 section headers, starting at offset 0xcfa6be0:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .note.gnu.bu[...] NOTE             0000000000000270  00000270
+       0000000000000018  0000000000000000   A       0     0     4
+  [ 2] .dynsym           DYNSYM           0000000000000288  00000288
+       0000000000001c80  0000000000000018   A       7     1     8
+  [ 3] .gnu.version      VERSYM           0000000000001f08  00001f08
+       0000000000000260  0000000000000002   A       2     0     2
+  [ 4] .gnu.version_d    VERDEF           0000000000002168  00002168
+       0000000000000038  0000000000000000   A       7     2     4
+  [ 5] .gnu.version_r    VERNEED          00000000000021a0  000021a0
+       0000000000000060  0000000000000000   A       7     3     4
+  [ 6] .gnu.hash         GNU_HASH         0000000000002200  00002200
+       0000000000000040  0000000000000000   A       2     0     8
+  [ 7] .dynstr           STRTAB           0000000000002240  00002240
+       000000000000141b  0000000000000000   A       0     0     1
+  [ 8] .rela.dyn         RELA             0000000000003660  00003660
+       0000000001a199a8  0000000000000018   A       2     0     8
+  [ 9] .rela.plt         RELA             0000000001a1d008  01a1d008
+       0000000000001a28  0000000000000018  AI       2    20     8
+  [10] .rodata           PROGBITS         0000000001a1ea40  01a1ea40
+       0000000002162b0c  0000000000000000 AMS       0     0     64
+  [11] .gcc_except_table PROGBITS         0000000003b8154c  03b8154c
+       000000000028e4c4  0000000000000000   A       0     0     4
+  [12] .eh_frame_hdr     PROGBITS         0000000003e0fa10  03e0fa10
+       00000000004ca34c  0000000000000000   A       0     0     4
+  [13] .eh_frame         PROGBITS         00000000042d9d60  042d9d60
+       00000000014db708  0000000000000000   A       0     0     8
+  [14] .text             PROGBITS         00000000057b9480  057b5480
+       0000000006aa4340  0000000000000000  AX       0     0     64
+  [15] .plt              PROGBITS         000000000c25d7c0  0c2597c0
+       0000000000001190  0000000000000000  AX       0     0     16
+  [16] .data.rel.ro      PROGBITS         000000000c262950  0c25a950
+       00000000006442c8  0000000000000000  WA       0     0     16
+  [17] .init_array       INIT_ARRAY       000000000c8a6c18  0c89ec18
+       0000000000001010  0000000000000000  WA       0     0     8
+  [18] .dynamic          DYNAMIC          000000000c8a7c28  0c89fc28
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [19] .got              PROGBITS         000000000c8a7e18  0c89fe18
+       00000000000eb708  0000000000000000  WA       0     0     8
+  [20] .got.plt          PROGBITS         000000000c993520  0c98b520
+       00000000000008d0  0000000000000000  WA       0     0     8
+  [21] .relro_padding    NOBITS           000000000c993df0  0c98bdf0
+       0000000000000210  0000000000000000  WA       0     0     1
+  [22] .data             PROGBITS         000000000c997e00  0c98be00
+       000000000061ac58  0000000000000000  WA       0     0     32
+  [23] .bss              NOBITS           000000000cfb2a80  0cfa6a58
+       0000000000355138  0000000000000000 WAo       0     0     64
+  [24] .shstrtab         STRTAB           0000000000000000  0cfa6a58
+       0000000000000114  0000000000000000           0     0     1
+  [25] .note.unity       NOTE             0000000000000000  0cfa6b6c
+       000000000000005c  0000000000000000           0     0     1
+  [26] .gnu_debuglink    PROGBITS         0000000000000000  0cfa6bc8
+       0000000000000014  0000000000000000           0     0     4
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+--- il2cpp version markers ---
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting.Proxies/RealProxy.cpp(21) : Unsupported internal call for IL2CPP:RealProxy::InternalGetTransparentProxy - System.Runtime.Remoting is not supported.
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting.Proxies/RealProxy.cpp(27) : Unsupported internal call for IL2CPP:RealProxy::InternalGetProxyType - System.Runtime.Remoting is not supported.
+[libil2cpp] 
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/AppDomain.cpp(209) : Unsupported internal call for IL2CPP:AppDomain::InternalGetProcessGuid - "This icall is only used in System.Runtime.Remoting.RemotingConfiguraiton.ProcessId."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/AppDomain.cpp(197) : Unsupported internal call for IL2CPP:AppDomain::InternalSetContext - "This icall is only used in the System.Runtime.Remoting namespace."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/vm/Reflection.cpp(476) : Unsupported internal call for IL2CPP:MemberInfo::get_MetadataToken - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting.Contexts/Context.cpp(22) : Unsupported internal call for IL2CPP:Context::RegisterContext - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/String.cpp(38) : Unsupported internal call for IL2CPP:String::RedirectToCreateString - "All String constructors should be redirected to String.CreateString."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting/RemotingServices.cpp(19) : Unsupported internal call for IL2CPP:RemotingServices::GetVirtualMethod - System.Runtime.Remoting is not supported.
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting.Contexts/Context.cpp(27) : Unsupported internal call for IL2CPP:Context::ReleaseContext - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Security.Principal/WindowsImpersonationContext.cpp(20) : Unsupported internal call for IL2CPP:WindowsImpersonationContext::CloseToken - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting.Activation/ActivationServices.cpp(27) : Unsupported internal call for IL2CPP:ActivationServices::EnableProxyActivation - System.Runtime.Remoting is not supported.
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/AppDomain.cpp(73) : Unsupported internal call for IL2CPP:AppDomain::InternalSetDomainByID - "This icall is only used in the System.Runtime.Remoting namespace."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Security.Principal/WindowsImpersonationContext.cpp(41) : Unsupported internal call for IL2CPP:WindowsImpersonationContext::DuplicateToken - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/AppDomain.cpp(66) : Unsupported internal call for IL2CPP:AppDomain::InternalSetDomain - "This icall is only used in the System.Runtime.Remoting namespace."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Runtime.Remoting/RemotingServices.cpp(25) : Unsupported internal call for IL2CPP:RemotingServices::InternalExecute - System.Runtime.Remoting is not supported.
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Security.Principal/WindowsImpersonationContext.cpp(27) : Unsupported internal call for IL2CPP:WindowsImpersonationContext::RevertToSelf - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/AppDomain.cpp(222) : Unsupported internal call for IL2CPP:AppDomain::InternalPopDomainRef - "This icall is only used in the System.Runtime.Remoting namespace."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Threading/NativeEventCalls.cpp(40) : Unsupported internal call for IL2CPP:NativeEventCalls::CreateEvent_internal - "Named events are not supported."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System.Security.Principal/WindowsImpersonationContext.cpp(34) : Unsupported internal call for IL2CPP:WindowsImpersonationContext::SetCurrentToken - "This icall is not supported by il2cpp."
+/workspace/so2-standoff/TempMerger/il2cpp/libil2cpp/icalls/mscorlib/System/AppDomain.cpp(232) : Unsupported internal call for IL2CPP:AppDomain::InternalPushDomainRefByID - "This icall is only used in the System.Runtime.Remoting namespace."
