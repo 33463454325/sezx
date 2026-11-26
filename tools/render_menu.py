@@ -1,111 +1,163 @@
 from PIL import Image, ImageDraw, ImageFont
 
-W, H = 1180, 820
-BG      = (18, 20, 28, 255)
-PANEL   = (23, 26, 33, 255)
-PANEL2  = (28, 31, 38, 255)
-TITLE   = (72, 20, 36, 255)
-ACCENT  = (247, 86, 124, 255)
-ACCENT2 = (255, 128, 160, 255)
-TEXT    = (230, 232, 238, 255)
-MUTED   = (140, 148, 160, 255)
-GREEN   = (90, 220, 130, 255)
+W, H = 1180, 1000
+
+BG       = (242, 242, 247, 255)
+CARD     = (255, 255, 255, 255)
+HAIR     = (198, 198, 200, 255)
+LABEL    = (0, 0, 0, 255)
+SECOND   = (90, 90, 95, 255)
+TERTIARY = (170, 170, 175, 255)
+BLUE     = (0, 122, 255, 255)
+GREEN_ON = (52, 199, 89, 255)
+GRAY_OFF = (229, 229, 234, 255)
+RED      = (255, 59, 48, 255)
 
 img = Image.new("RGBA", (W, H), BG)
 d = ImageDraw.Draw(img)
 
-try:
-    font_b  = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
-    font_m  = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 17)
-    font_s  = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14)
-except Exception:
-    font_b = font_m = font_s = ImageFont.load_default()
+def font(paths, size):
+    for p in paths:
+        try: return ImageFont.truetype(p, size)
+        except Exception: pass
+    return ImageFont.load_default()
 
-def rrect(xy, radius, fill, outline=None, width=1):
-    d.rounded_rectangle(xy, radius=radius, fill=fill, outline=outline, width=width)
+SFB = ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"]
+SF  = ["/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
 
-rrect((40, 40, W-40, H-40), 10, PANEL)
-rrect((40, 40, W-40, 86), 10, TITLE)
-d.rectangle((40, 76, W-40, 86), fill=TITLE)
-d.text((60, 52), "so2mm", font=font_b, fill=TEXT)
-d.text((W-110, 56), "— □ ×", font=font_m, fill=MUTED)
+f_large = font(SFB, 34)
+f_title = font(SFB, 22)
+f_row   = font(SF,  18)
+f_sub   = font(SF,  15)
+f_small = font(SF,  13)
+f_badge = font(SFB, 11)
 
-tabs = ["aim", "esp", "weapon", "move", "skins", "antiban", "config"]
+def rrect(xy, r, fill, outline=None, width=1):
+    d.rounded_rectangle(xy, radius=r, fill=fill, outline=outline, width=width)
+
+def switch(x, y, on):
+    w, h = 50, 30
+    track = GREEN_ON if on else GRAY_OFF
+    rrect((x, y, x+w, y+h), h//2, track)
+    knob_x = x + (w - h + 2) if on else x + 2
+    d.ellipse((knob_x, y+2, knob_x+h-4, y+h-2), fill=(255,255,255,255))
+
+def chevron(x, y):
+    d.line((x, y-5, x+6, y, x, y+5), fill=TERTIARY, width=2)
+
+d.rectangle((0, 0, W, 90), fill=BG)
+d.text((36, 20), "‹ Settings", font=f_row, fill=BLUE)
+d.text((36, 48), "Skins", font=f_large, fill=LABEL)
+
+tabs = ["Aim", "ESP", "Weapon", "Move", "Skins", "Guard", "Config"]
 active = 4
-x = 60
-y = 104
+seg_x, seg_y, seg_w, seg_h = 36, 104, W - 72, 38
+rrect((seg_x, seg_y, seg_x+seg_w, seg_y+seg_h), 9, (120,120,128, 50))
+cell_w = seg_w / len(tabs)
 for i, t in enumerate(tabs):
-    tw = 90
-    col = (66, 20, 36, 255) if i == active else (30, 24, 30, 255)
-    rrect((x, y, x+tw, y+34), 5, col)
-    d.text((x + (tw - d.textlength(t, font=font_m))//2, y+8), t, font=font_m,
-           fill=TEXT if i == active else MUTED)
-    x += tw + 6
+    cx = seg_x + i*cell_w
+    if i == active:
+        rrect((cx+2, seg_y+2, cx+cell_w-2, seg_y+seg_h-2), 8, CARD)
+    tw = d.textlength(t, font=f_row)
+    d.text((cx + (cell_w - tw)/2, seg_y + 8), t, font=f_row,
+           fill=LABEL if i == active else SECOND)
 
-body_y = 160
-rrect((60, body_y, 60+22, body_y+22), 4, PANEL2, outline=ACCENT, width=2)
-d.text((64, body_y+3), "✓", font=font_m, fill=ACCENT)
-d.text((94, body_y+2), "skin changer", font=font_m, fill=TEXT)
-rrect((260, body_y-3, 400, body_y+27), 5, (58, 24, 36, 255))
-d.text((285, body_y+3), "reload catalog", font=font_m, fill=TEXT)
+sec_y = seg_y + seg_h + 24
+d.text((48, sec_y - 22), "SKIN CHANGER", font=f_small, fill=SECOND)
+rrect((36, sec_y, W-36, sec_y+56), 12, CARD)
+d.text((56, sec_y+18), "Enable", font=f_row, fill=LABEL)
+switch(W - 36 - 18 - 50, sec_y + 13, on=True)
 
-left_x, left_w = 60, 230
-right_x = 60 + 230 + 14
-right_w = W - 60 - right_x
-panel_y, panel_h = body_y + 44, 340
-rrect((left_x, panel_y, left_x+left_w, panel_y+panel_h), 6, PANEL2)
-rrect((right_x, panel_y, right_x+right_w, panel_y+panel_h), 6, PANEL2)
+sec2_y = sec_y + 56 + 28
+d.text((48, sec2_y - 22), "WEAPONS", font=f_small, fill=SECOND)
+left_w = 320
+card_h = 480
+rrect((36, sec2_y, 36+left_w, sec2_y+card_h), 12, CARD)
+right_x = 36 + left_w + 14
+right_w = W - 36 - right_x
+rrect((right_x, sec2_y, right_x+right_w, sec2_y+card_h), 12, CARD)
 
-weapons = ["AK-47", "M4A1", "AWP", "Glock-18", "Desert Eagle", "Karambit", "Butterfly", "Bayonet"]
+weapons = ["AKR", "M4", "AWM", "Desert Eagle", "USP", "Glock-18",
+           "Karambit", "M9 Bayonet", "Butterfly"]
+counts = [14, 2, 2, 2, 1, 1, 2, 2, 2]
 sel_w = 0
-for i, w in enumerate(weapons):
-    ry = panel_y + 10 + i*34
+row_h = 46
+for i, (w, c) in enumerate(zip(weapons, counts)):
+    ry = sec2_y + 8 + i*row_h
     if i == sel_w:
-        rrect((left_x+6, ry-3, left_x+left_w-6, ry+24), 4, (66, 20, 36, 255))
-    d.text((left_x+18, ry), w, font=font_m, fill=TEXT if i == sel_w else MUTED)
+        rrect((36+6, ry-2, 36+left_w-6, ry+row_h-6), 8, (0, 122, 255, 30))
+    d.text((56, ry+12), w, font=f_row, fill=LABEL)
+    tw = d.textlength(str(c), font=f_sub)
+    d.text((36+left_w - 44 - tw, ry+14), str(c), font=f_sub, fill=SECOND)
+    chevron(36+left_w - 26, ry + row_h/2 - 2)
+    if i < len(weapons)-1:
+        d.line((56, ry+row_h-4, 36+left_w-14, ry+row_h-4), fill=HAIR, width=1)
 
 skins = [
-    ("Default",     False),
-    ("Neon Rider",  True),
-    ("Asiimov",     False),
-    ("Wild Lotus",  True),
+    ("Default",          True,  False),
+    ("Steel Grip",       True,  False),
+    ("Tiger",            True,  True),
+    ("Sport",            True,  False),
+    ("2Years Red",       True,  True),
+    ("Treasure Hunter",  True,  True),
+    ("Galaxy",           False, False),
+    ("Neon Tiger",       False, False),
+    ("Dragon",           False, True),
+    ("Evolution",        False, False),
 ]
-sel_s = 2
-for i, (sname, st) in enumerate(skins):
-    ry = panel_y + 10 + i*34
+sel_s = 4
+d.text((right_x+20, sec2_y+14), "AKR", font=f_title, fill=LABEL)
+d.text((right_x+right_w-110, sec2_y+20), "14 skins", font=f_sub, fill=SECOND)
+d.line((right_x+20, sec2_y+54, right_x+right_w-20, sec2_y+54), fill=HAIR, width=1)
+
+base_y = sec2_y + 66
+rh = 40
+for i, (name, verified, st) in enumerate(skins):
+    ry = base_y + i*rh
     if i == sel_s:
-        rrect((right_x+6, ry-3, right_x+right_w-6, ry+24), 4, (66, 20, 36, 255))
-    d.text((right_x+18, ry), sname, font=font_m, fill=TEXT if i == sel_s else MUTED)
+        rrect((right_x+6, ry-2, right_x+right_w-6, ry+rh-6), 8, (0, 122, 255, 30))
+        d.ellipse((right_x+right_w-32, ry+rh/2-8, right_x+right_w-16, ry+rh/2+8), fill=BLUE)
+        d.line((right_x+right_w-28, ry+rh/2+1, right_x+right_w-23, ry+rh/2+5,
+                right_x+right_w-19, ry+rh/2-3), fill=(255,255,255,255), width=2)
+    d.text((right_x+20, ry+10), name, font=f_row, fill=LABEL)
+    tag_x = right_x + 20 + d.textlength(name, font=f_row) + 10
+    if verified:
+        rrect((tag_x, ry+12, tag_x+18, ry+28), 4, (52,199,89, 50))
+        d.text((tag_x+5, ry+13), "✓", font=f_badge, fill=GREEN_ON)
+    else:
+        rrect((tag_x, ry+12, tag_x+18, ry+28), 4, (255,204,0, 50))
+        d.text((tag_x+7, ry+13), "?", font=f_badge, fill=(180,120,0,255))
+    tag_x += 24
     if st:
-        tag_w = 36
-        rrect((right_x+right_w-tag_w-16, ry+1, right_x+right_w-16, ry+22), 4, (40, 70, 50, 255))
-        d.text((right_x+right_w-tag_w-6, ry+2), "ST", font=font_s, fill=GREEN)
+        rrect((tag_x, ry+12, tag_x+30, ry+28), 4, (255,59,48, 50))
+        d.text((tag_x+6, ry+14), "ST", font=f_badge, fill=RED)
+    if i < len(skins)-1:
+        d.line((right_x+20, ry+rh-4, right_x+right_w-20, ry+rh-4), fill=HAIR, width=1)
 
-cy = panel_y + panel_h + 20
-rrect((60, cy, 82, cy+22), 4, PANEL2, outline=ACCENT, width=2)
-d.text((64, cy+3), "✓", font=font_m, fill=ACCENT)
-d.text((92, cy+2), "StatTrak", font=font_m, fill=TEXT)
+sec3_y = sec2_y + card_h + 28
+rrect((36, sec3_y, W-36, sec3_y+150), 12, CARD)
+d.text((56, sec3_y+18), "StatTrak", font=f_row, fill=LABEL)
+switch(W - 36 - 18 - 50, sec3_y + 13, on=True)
+d.line((56, sec3_y+56, W-56, sec3_y+56), fill=HAIR, width=1)
 
-sy = cy + 40
-d.text((60, sy-2), "wear (float)", font=font_m, fill=MUTED)
-bar_x1, bar_x2 = 200, 760
-d.rectangle((bar_x1, sy+7, bar_x2, sy+13), fill=(40, 44, 54, 255))
+d.text((56, sec3_y+70), "Wear", font=f_row, fill=LABEL)
+d.text((W-220, sec3_y+70), "0.070  ·  Factory New", font=f_sub, fill=SECOND)
+bar_x1, bar_x2 = 56, W - 56
+by = sec3_y + 115
+d.rounded_rectangle((bar_x1, by-3, bar_x2, by+3), 3, fill=(120,120,128, 60))
 fill_px = int(bar_x1 + (bar_x2-bar_x1) * 0.07)
-d.rectangle((bar_x1, sy+7, fill_px, sy+13), fill=ACCENT)
-d.ellipse((fill_px-9, sy+1, fill_px+9, sy+19), fill=ACCENT2, outline=ACCENT, width=2)
-d.text((bar_x2+20, sy-2), "0.070", font=font_m, fill=TEXT)
+d.rounded_rectangle((bar_x1, by-3, fill_px, by+3), 3, fill=BLUE)
+d.ellipse((fill_px-12, by-12, fill_px+12, by+12), fill=CARD, outline=(0,0,0,30), width=1)
 
-by = sy + 42
-rrect((60, by, 230, by+34), 5, (72, 24, 42, 255))
-d.text((90, by+8), "apply to loadout", font=font_m, fill=TEXT)
-rrect((246, by, 386, by+34), 5, (42, 18, 28, 255))
-d.text((278, by+8), "force refresh", font=font_m, fill=TEXT)
-d.text((60, by+46), "local-only; server never sees the swap", font=font_s, fill=MUTED)
+apply_y = sec3_y + 150 + 20
+rrect((36, apply_y, W-36, apply_y+52), 12, BLUE)
+label = "Apply to Loadout"
+tw = d.textlength(label, font=f_title)
+d.text(((W - tw)/2, apply_y+13), label, font=f_title, fill=(255,255,255,255))
 
-d.line((60, H-80, W-60, H-80), fill=(40, 44, 54, 255), width=1)
-d.text((60, H-70), "snapshot ready: 1    enemies: 4    fps: 118",
-       font=font_s, fill=MUTED)
-d.text((W-260, H-70), "three-finger tap to toggle", font=font_s, fill=MUTED)
+d.text((W//2 - 230, apply_y + 68),
+       "Local only  ·  server never sees the swap  ·  AKR • 2Years Red (ST)",
+       font=f_small, fill=SECOND)
 
 out = "/tmp/claude-0/-home-user-sezx/c19d3923-cc31-59a5-a153-26878d244cef/scratchpad/so2mm_menu.png"
 img.convert("RGB").save(out, "PNG")
